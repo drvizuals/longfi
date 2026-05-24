@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose × DR&AV — The Signal Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,500;1,9..144,200;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --white:    #FFFFFF;
+  --off:      #F5F7FB;
+  --cream:    #EFF2F8;
+  --border:   #DDE3EF;
+  --border2:  #C8D2E8;
+  --navy:     #0D1B3E;
+  --navy2:    #142252;
+  --mid:      #1E3A8A;
+  --electric: #3B82F6;
+  --sky:      #60A5FA;
+  --mist:     #BFDBFE;
+  --pale:     #EFF6FF;
+  --pale2:    #DBEAFE;
+  --ink:      #060E24;
+  --dark:     #111C3B;
+  --body:     #3D4F6E;
+  --muted:    #7A8BA8;
+  --gold:     #D97706;
+  --gold-bg:  #FFFBEB;
+  --gold-bd:  #FDE68A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ───────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3rem;
+}
+.nav-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 300; font-size: 1rem;
+  color: var(--navy); letter-spacing: .02em;
+}
+.nav-brand em { font-style: italic; color: var(--electric); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: .73rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-btn {
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .6rem 1.6rem; border-radius: 100px;
+  background: var(--navy); color: #fff;
+  text-decoration: none; transition: background .25s;
+}
+.nav-btn:hover { background: var(--navy2); }
+
+/* ── REVEAL ────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+/* ── HERO ──────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 10rem 3rem 5.5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg-circle {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+.hbc1 {
+  width: 800px; height: 800px;
+  top: -200px; right: -150px;
+  background: radial-gradient(circle, rgba(59,130,246,.28) 0%, transparent 70%);
+  animation: breathe 12s ease-in-out infinite;
+}
+.hbc2 {
+  width: 500px; height: 500px;
+  bottom: -100px; left: -100px;
+  background: radial-gradient(circle, rgba(13,27,62,.4) 0%, transparent 70%);
+  animation: breathe 16s ease-in-out infinite reverse;
+}
+.hbc3 {
+  width: 300px; height: 300px;
+  top: 40%; left: 30%;
+  background: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 70%);
+  animation: breathe 20s ease-in-out infinite;
+}
+@keyframes breathe { 0%,100%{transform:scale(1);} 50%{transform:scale(1.18);} }
+
+/* signal ring animation */
+.signal-rings {
+  position: absolute;
+  top: 18%; right: 12%;
+  pointer-events: none;
+}
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(59,130,246,.15);
+  transform: translate(-50%,-50%);
+  animation: ring-expand 4s ease-out infinite;
+}
+.ring:nth-child(1) { width: 120px; height: 120px; animation-delay: 0s; }
+.ring:nth-child(2) { width: 240px; height: 240px; animation-delay: 1s; }
+.ring:nth-child(3) { width: 360px; height: 360px; animation-delay: 2s; }
+.ring:nth-child(4) { width: 480px; height: 480px; animation-delay: 3s; }
+@keyframes ring-expand {
+  0% { opacity: 0.6; transform: translate(-50%,-50%) scale(.7); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(1); }
+}
+
+.hero-label {
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--sky); margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp .8s .3s forwards;
+}
+.hero-label-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--electric);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+@keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:.2;} }
+
+.hero-h {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.5rem, 7.5vw, 8.5rem);
+  font-weight: 200; line-height: .92;
+  letter-spacing: -.02em; color: #fff;
+  opacity: 0; animation: fadeUp 1s .5s forwards;
+}
+.hero-h em { font-style: italic; color: var(--sky); }
+
+.hero-sub {
+  margin-top: 2.5rem;
+  font-size: 1.02rem; font-weight: 300;
+  line-height: 1.8; color: rgba(255,255,255,.45);
+  max-width: 480px;
+  opacity: 0; animation: fadeUp .9s .72s forwards;
+}
+
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: .75rem;
+  margin-top: 3.5rem;
+  opacity: 0; animation: fadeUp .9s .9s forwards;
+}
+.chip {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .55rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.04);
+  font-size: .8rem; font-weight: 400;
+  color: rgba(255,255,255,.65);
+}
+.chip-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--electric); flex-shrink: 0;
+}
+
+.hero-stats {
+  display: flex; gap: 3.5rem; flex-wrap: wrap;
+  margin-top: 4rem; padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  opacity: 0; animation: fadeUp 1s 1.1s forwards;
+}
+.hs-n {
+  font-family: 'Fraunces', serif;
+  font-size: 2.8rem; font-weight: 200;
+  color: #fff; line-height: 1;
+}
+.hs-n em { color: var(--sky); font-style: normal; font-size: 1.7rem; }
+.hs-l {
+  font-size: .62rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.28); margin-top: .25rem;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;} }
+
+/* ── SECTION PARTS ─────────────────────────────── */
+.section { padding: 7rem 3rem; }
+.section.off { background: var(--off); }
+.section.pale { background: var(--pale); }
+.section.white { background: var(--white); }
+
+.eyebrow {
+  display: flex; align-items: center; gap: .85rem;
+  font-size: .65rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1.1rem;
+}
+.eyebrow::before {
+  content: ''; display: block;
+  width: 24px; height: 2px;
+  background: var(--mid); border-radius: 2px;
+}
+
+.sh {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 200; line-height: 1.05;
+  letter-spacing: -.01em; color: var(--ink);
+}
+.sh em { font-style: italic; color: var(--navy); }
+
+/* ── SITUATION ─────────────────────────────────── */
+.sit-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; margin-top: 4rem; align-items: start;
+}
+.sit-body {
+  font-size: 1.02rem; font-weight: 300;
+  line-height: 1.85; color: var(--body);
+}
+.sit-body p + p { margin-top: 1.3rem; }
+.sit-body strong { color: var(--ink); font-weight: 600; }
+
+.cards { display: flex; flex-direction: column; gap: .75rem; }
+.card-sm {
+  padding: 1.3rem 1.5rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: border-color .25s, box-shadow .25s;
+}
+.card-sm:hover { border-color: var(--mist); box-shadow: 0 4px 20px rgba(59,130,246,.07); }
+.card-sm.good { border-color: var(--mist); background: var(--pale); }
+.card-sm.gap { border-color: var(--gold-bd); background: var(--gold-bg); }
+.csm-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: .05rem; }
+.csm-label {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: .3rem;
+}
+.good .csm-label { color: var(--mid); }
+.gap .csm-label { color: var(--gold); }
+.csm-text { font-size: .86rem; font-weight: 300; line-height: 1.6; color: var(--body); }
+.csm-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── SIGNAL SECTION ────────────────────────────── */
+.sig-section { background: var(--ink); padding: 7rem 3rem; }
+.sig-section .eyebrow { color: var(--sky); }
+.sig-section .eyebrow::before { background: var(--sky); }
+.sig-section .sh { color: #fff; }
+.sig-section .sh em { color: var(--sky); }
+.sig-sub {
+  font-size: 1rem; font-weight: 300;
+  line-height: 1.78; color: rgba(255,255,255,.55);
+  max-width: 500px; margin-top: 1rem;
+}
+
+.sig-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 2px; margin-top: 4rem;
+  background: rgba(255,255,255,.06);
+  border-radius: 16px; overflow: hidden;
+}
+.sig-cell {
+  background: rgba(255,255,255,.03);
+  padding: 2.5rem 2rem;
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  transition: all .3s;
+}
+.sig-cell:hover {
+  background: rgba(59,130,246,.18);
+  border-bottom-color: var(--electric);
+}
+.sig-num {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem; font-weight: 200;
+  color: rgba(96,165,250,.2); line-height: 1;
+  margin-bottom: .9rem;
+}
+.sig-title {
+  font-size: .9rem; font-weight: 600;
+  color: #fff; margin-bottom: .6rem;
+  letter-spacing: .02em;
+}
+.sig-desc {
+  font-size: .83rem; font-weight: 300;
+  line-height: 1.65; color: rgba(255,255,255,.45);
+}
+
+.sig-pull {
+  margin-top: 3.5rem;
+  padding: 2.5rem 2.8rem;
+  background: rgba(59,130,246,.12);
+  border-left: 4px solid var(--electric);
+  border-radius: 0 12px 12px 0;
+}
+.sig-pull p {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem; font-style: italic; font-weight: 300;
+  line-height: 1.65; color: rgba(255,255,255,.8);
+}
+.sig-pull p em { color: var(--sky); font-style: normal; font-weight: 500; }
+
+/* ── BUILD ─────────────────────────────────────── */
+.build-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 4rem;
+}
+.build-card {
+  border-radius: 12px; overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+}
+.build-card.dark {
+  background: var(--ink);
+  border-color: transparent;
+}
+.bc-head {
+  padding: 2rem 2rem 1.6rem;
+  border-bottom: 1.5px solid var(--border);
+}
+.build-card.dark .bc-head {
+  border-bottom-color: rgba(255,255,255,.07);
+}
+.bc-tag {
+  font-size: .62rem; font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: .5rem;
+}
+.build-card.dark .bc-tag { color: var(--sky); }
+.bc-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 300; color: var(--ink);
+}
+.build-card.dark .bc-title { color: #fff; }
+.bc-body { padding: 1.8rem 2rem; }
+.bi {
+  display: flex; gap: .85rem; align-items: flex-start;
+  padding: .72rem 0; border-bottom: 1px solid var(--border);
+}
+.build-card.dark .bi { border-bottom-color: rgba(255,255,255,.05); }
+.bi:last-child { border-bottom: none; }
+.bi-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--pale2); flex-shrink: 0; margin-top: .14rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .5rem; color: var(--navy); font-weight: 700;
+}
+.build-card.dark .bi-dot { background: rgba(96,165,250,.15); color: var(--sky); }
+.bi-t { font-size: .87rem; font-weight: 300; line-height: 1.6; color: var(--body); }
+.build-card.dark .bi-t { color: rgba(255,255,255,.5); }
+.bi-t strong { color: var(--ink); font-weight: 600; }
+.build-card.dark .bi-t strong { color: #fff; }
+
+.tech-banner {
+  grid-column: 1 / -1;
+  padding: 1.7rem 2rem;
+  background: var(--pale);
+  border-radius: 10px;
+  border: 1.5px solid var(--mist);
+  display: flex; gap: 1.2rem; align-items: flex-start;
+}
+.tb-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+.tb-text { font-size: .87rem; font-weight: 300; line-height: 1.65; color: var(--body); }
+.tb-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── NUMBERS ───────────────────────────────────── */
+.num-trio {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem; margin-top: 4rem;
+}
+.num-box {
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+}
+.num-box.accent {
+  background: var(--navy); border-color: transparent;
+}
+.nb-val {
+  font-family: 'Fraunces', serif;
+  font-size: 3.2rem; font-weight: 200;
+  color: var(--ink); line-height: 1;
+}
+.num-box.accent .nb-val { color: #fff; }
+.nb-val em { color: var(--navy); font-style: normal; font-size: 2rem; }
+.num-box.accent .nb-val em { color: var(--mist); }
+.nb-lab {
+  font-size: .62rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-top: .6rem;
+}
+.num-box.accent .nb-lab { color: rgba(255,255,255,.45); }
+.nb-sub { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+.num-box.accent .nb-sub { color: rgba(255,255,255,.35); }
+
+.tbl-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-weight: 300;
+  color: var(--ink); margin: 3.5rem 0 1rem;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: .87rem; }
+th {
+  text-align: left; padding: .8rem 1.1rem;
+  background: var(--navy); color: rgba(255,255,255,.7);
+  font-size: .62rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child { border-radius: 0 8px 0 0; }
+td {
+  padding: .85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--body); font-weight: 300;
+}
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--off); }
+.tg { color: var(--navy); font-weight: 600; }
+.to { color: var(--gold); font-weight: 600; }
+.total-row td {
+  background: var(--pale2) !important;
+  color: var(--navy); font-weight: 600;
+  font-size: .9rem;
+}
+
+.venue-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; margin-top: 3rem;
+  background: var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.venue-box { padding: 2rem 1.6rem; background: var(--white); }
+.venue-box.hot { background: var(--navy); }
+.vb-scenario {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: .8rem;
+}
+.venue-box.hot .vb-scenario { color: var(--mist); }
+.vb-n {
+  font-family: 'Fraunces', serif;
+  font-size: 2.6rem; font-weight: 200;
+  color: var(--ink); line-height: 1;
+}
+.venue-box.hot .vb-n { color: #fff; }
+.vb-sub { font-size: .75rem; color: var(--muted); margin-top: .3rem; }
+.venue-box.hot .vb-sub { color: rgba(255,255,255,.4); }
+.vb-rev { font-size: .84rem; color: var(--muted); margin-top: .9rem; }
+.vb-rev strong { color: var(--ink); font-weight: 600; }
+.venue-box.hot .vb-rev strong { color: var(--mist); }
+.venue-fn { font-size: .8rem; font-weight: 300; font-style: italic; color: var(--muted); margin-top: 1.2rem; }
+
+/* ── FUTURE ────────────────────────────────────── */
+.future-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.future-body {
+  font-size: 1.02rem; font-weight: 300;
+  line-height: 1.85; color: var(--body);
+}
+.future-body p + p { margin-top: 1.3rem; }
+.future-body strong { color: var(--ink); font-weight: 600; }
+.future-card {
+  padding: 2.8rem;
+  border-radius: 12px;
+  background: var(--pale);
+  border: 1.5px solid var(--mist);
+  position: relative;
+}
+.future-card::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 7rem; line-height: 1;
+  color: var(--mist); opacity: .5;
+  position: absolute; top: -.5rem; left: 1.8rem;
+}
+.future-card p {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem; font-style: italic; font-weight: 300;
+  line-height: 1.7; color: var(--dark);
+  position: relative; z-index: 1;
+}
+.future-card p em { color: var(--navy); font-style: normal; font-weight: 500; }
+
+/* ── PRICING ───────────────────────────────────── */
+.price-fn {
+  text-align: center; font-size: .78rem;
+  font-weight: 300; font-style: italic;
+  color: var(--muted); margin-top: 1.3rem;
+}
+
+/* ── TIMELINE ──────────────────────────────────── */
+.tl-row {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  gap: 0; margin-top: 4rem; position: relative;
+}
+.tl-row::before {
+  content: ''; position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), var(--mist), var(--border));
+}
+.tl-item { text-align: center; padding: 0 1rem; }
+.tl-dot {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.1rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 300; color: var(--navy);
+  position: relative; z-index: 1;
+  box-shadow: 0 0 0 6px var(--off);
+  transition: all .3s;
+}
+.tl-item:hover .tl-dot {
+  background: var(--navy); border-color: var(--navy);
+  color: #fff; box-shadow: 0 4px 20px rgba(13,27,62,.25), 0 0 0 6px var(--off);
+}
+.tl-wk {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: .4rem;
+}
+.tl-title { font-size: .84rem; font-weight: 600; color: var(--ink); margin-bottom: .35rem; line-height: 1.3; }
+.tl-desc { font-size: .74rem; font-weight: 300; line-height: 1.5; color: var(--muted); }
+
+/* ── CTA ───────────────────────────────────────── */
+.cta {
+  background: var(--navy);
+  padding: 8rem 3rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 120%, rgba(0,0,0,.3), transparent 60%);
+}
+.cta-ring {
+  position: absolute;
+  top: 30%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+.cta-ring div {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(96,165,250,.08);
+  transform: translate(-50%,-50%);
+}
+.cta-ring div:nth-child(1) { width: 300px; height: 300px; }
+.cta-ring div:nth-child(2) { width: 500px; height: 500px; }
+.cta-ring div:nth-child(3) { width: 700px; height: 700px; }
+.cta-ring div:nth-child(4) { width: 900px; height: 900px; }
+.cta-ey {
+  font-size: .68rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mist); margin-bottom: 1.3rem;
+  position: relative; z-index: 1;
+}
+.cta-h {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 200; line-height: .95;
+  letter-spacing: -.02em; color: #fff;
+  margin-bottom: 1.3rem;
+  position: relative; z-index: 1;
+}
+.cta-h em { font-style: italic; color: var(--mist); }
+.cta-sub {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,.5);
+  max-width: 440px; margin: 0 auto 3.5rem;
+  line-height: 1.8; position: relative; z-index: 1;
+}
+.cta-people {
+  display: flex; justify-content: center; gap: 4rem;
+  margin-bottom: 3rem; position: relative; z-index: 1; flex-wrap: wrap;
+}
+.cp-role {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mist); margin-bottom: .35rem;
+}
+.cp-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem; font-weight: 300; color: #fff;
+  margin-bottom: .2rem;
+}
+.cp-num { font-size: .88rem; color: rgba(255,255,255,.45); }
+.cta-btns {
+  display: flex; justify-content: center;
+  gap: 1rem; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.cta-btn {
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 1rem 2.4rem; border-radius: 8px;
+  text-decoration: none; transition: all .25s;
+}
+.cta-btn.p { background: #fff; color: var(--navy); }
+.cta-btn.p:hover { background: var(--cream); }
+.cta-btn.o { border: 1.5px solid rgba(255,255,255,.25); color: rgba(255,255,255,.6); }
+.cta-btn.o:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+.cta-foot {
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  font-size: .72rem; color: rgba(255,255,255,.25);
+  position: relative; z-index: 1;
+}
+
+/* ── RESPONSIVE ────────────────────────────────── */
+
+/* Utility: responsive inline grids */
+.grid-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-3strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+.pricing-flex { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 1; }
+.pricing-features { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1.5rem; }
+
+/* Table wrapper for horizontal scroll on mobile */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+.table-wrap table { min-width: 560px; }
+
+/* Bottom-line flex block */
+.bottom-line-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+
+/* Tablet */
+@media(max-width:960px){
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .section { padding: 5rem 1.5rem; }
+  .sig-section { padding: 5rem 1.5rem; }
+  .hero { padding: 8rem 1.5rem 4rem; }
+  .signal-rings { display: none; }
+
+  .sit-grid, .future-grid, .build-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .num-trio { grid-template-columns: 1fr; }
+  .tl-row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tl-row::before { display: none; }
+  .tl-item { text-align: left; display: flex; gap: 1.2rem; align-items: flex-start; padding: 0; }
+  .tl-dot { margin: 0; flex-shrink: 0; }
+
+  .sig-grid { grid-template-columns: 1fr 1fr; }
+  .venue-grid { grid-template-columns: 1fr 1fr; }
+  .tech-banner { grid-column: 1; }
+  .cta { padding: 5rem 1.5rem; }
+  .cta-people { gap: 2rem; }
+
+  .grid-3col { grid-template-columns: 1fr; }
+  .grid-2col { grid-template-columns: 1fr; }
+  .grid-3strip { grid-template-columns: 1fr; gap: 0; }
+  .pricing-features { grid-template-columns: 1fr; }
+  .pricing-flex { flex-direction: column; }
+  .pricing-flex > div:last-child { width: 100%; text-align: left; }
+  .bottom-line-flex { flex-direction: column; }
+}
+
+/* Phone */
+@media(max-width:560px){
+  #three-pillars { grid-template-columns: 1fr !important; }
+  nav { padding: .85rem 1.1rem; }
+  .nav-btn { padding: .55rem 1.1rem; font-size: .65rem; }
+  .section { padding: 4rem 1.1rem; }
+  .sig-section { padding: 4rem 1.1rem; }
+  .hero { padding: 7rem 1.1rem 3.5rem; }
+
+  .hero-h { font-size: clamp(2.8rem, 10vw, 4rem); }
+  .hero-sub { font-size: .93rem; margin-top: 1.5rem; }
+  .hero-chips { gap: .5rem; margin-top: 2rem; }
+  .chip { font-size: .72rem; padding: .45rem .85rem; }
+  .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; }
+  .hs-n { font-size: 2.2rem; }
+
+  .sh { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .sit-grid { margin-top: 2.5rem; }
+  .sit-body { font-size: .93rem; }
+
+  .sig-grid { grid-template-columns: 1fr; }
+  .sig-pull { padding: 1.8rem; }
+  .sig-pull p { font-size: 1.1rem; }
+
+  .venue-grid { grid-template-columns: 1fr; }
+
+  .build-grid { margin-top: 2rem; }
+  .bc-title { font-size: 1.3rem; }
+  .bc-body { padding: 1.4rem 1.2rem; }
+  .bc-head { padding: 1.4rem 1.2rem 1.2rem; }
+
+  .num-trio { margin-top: 2.5rem; }
+  .nb-val { font-size: 2.6rem; }
+
+  .tbl-title { font-size: 1.2rem; margin: 2.5rem 0 .8rem; }
+
+  .future-card { padding: 2rem 1.6rem; }
+  .future-card p { font-size: 1.1rem; }
+
+  .cta { padding: 4rem 1.1rem; }
+  .cta-h { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+  .cta-people { flex-direction: column; gap: 1.5rem; align-items: center; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .cta-btn { width: 100%; text-align: center; }
+
+  .hero-stats > div { min-width: 40%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><em>Signal</em> × DR&amp;AV</div>
+  <ul class="nav-links">
+    <li><a href="#situation">Situation</a></li>
+    <li><a href="#signal">The System</a></li>
+    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#pricing">Investment</a></li>
+  </ul>
+  <a href="https://buy.stripe.com/cNi9AT4X686C1V04YE53O0P" class="nav-btn">Ready to Start</a>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-circle hbc1"></div>
+  <div class="hero-bg-circle hbc2"></div>
+  <div class="hero-bg-circle hbc3"></div>
+
+  <div class="signal-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
+  <div class="hero-label">
+    <div class="hero-label-dot"></div>
+    A Proposal for Jose — DR&amp;AV × Enterprise Acquisition
+  </div>
+
+  <h1 class="hero-h">
+    Portfolio owners.<br>Enterprise deals.<br><em>Every quarter.</em>
+  </h1>
+
+  <p class="hero-sub">A content strategy and acquisition engine built around your company — designed to reach the decision-makers your technology deserves: portfolio owners, hedge fund managers, multi-venue operators. The people who say yes once and deploy everywhere.</p>
+
+  <div class="hero-chips">
+    <div class="chip"><div class="chip-dot"></div>Enterprise Acquisition Engine</div>
+    <div class="chip"><div class="chip-dot"></div>Top-Down Outreach System</div>
+    <div class="chip"><div class="chip-dot"></div>Content Strategy — Built for B2B</div>
+    <div class="chip"><div class="chip-dot"></div>$14M Valuation · Final Round</div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hs-n">$14<em>M</em></div>
+      <div class="hs-l">post-money valuation</div>
+    </div>
+    <div>
+      <div class="hs-n">$500<em>K</em></div>
+      <div class="hs-l">final funding round</div>
+    </div>
+    <div>
+      <div class="hs-n">30<em>%</em></div>
+      <div class="hs-l">partner revenue share</div>
+    </div>
+    <div>
+      <div class="hs-n">10<em>+</em></div>
+      <div class="hs-l">venues per enterprise deal</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SITUATION
+════════════════════════════════════════════ -->
+<section class="section off" id="situation">
+  <div class="eyebrow reveal">01 — The Situation</div>
+  <h2 class="sh reveal">What you've built is solid.<br><em>Here's what's missing.</em></h2>
+
+  <div class="sit-grid">
+    <div class="sit-body reveal">
+      <p>You've raised $1.5 million, passed a McCarthy Building Companies security audit, deployed at Jazzfest in New Orleans, and built an AT&T partnership for event-scale connectivity. <strong>The technology works. The SOPs are dialed. The product is real.</strong></p>
+      <p>But you're running on 3–4 discovery calls a week — mostly bottom-up, mostly individual MSPs who can't make portfolio-wide decisions. The face-to-face rep in Texas and Louisiana is closing deals. LinkedIn automation is generating meetings. <strong>Neither is building the brand that makes enterprise buyers come to you.</strong></p>
+      <p>You've already made the strategic decision: stop chasing individual venues, start reaching portfolio owners — hedge fund managers, multi-unit operators, hospitality groups, commercial real estate portfolios. The people who say yes once and you deploy across 10, 20, 50 locations.</p>
+      <p>That shift requires a different kind of presence. <strong>That's what we're here to build.</strong></p>
+    </div>
+
+    <div class="cards reveal">
+      <div class="card-sm good">
+        <div class="csm-ico">🏗️</div>
+        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>McCarthy Building Companies security audit — passed.</strong> Enterprise compliance is done. The hardest door to open is already open. You can pursue Fortune 500 accounts with proof.</div></div>
+      </div>
+      <div class="card-sm good">
+        <div class="csm-ico">📡</div>
+        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>AT&T partnership + Jazzfest deployment.</strong> Event connectivity is a proven new vertical. The FIFA World Cup is a real, time-bound marketing moment nobody else in your space is using.</div></div>
+      </div>
+      <div class="card-sm good">
+        <div class="csm-ico">💼</div>
+        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>30% revenue share model.</strong> A referral incentive this strong turns every partner introduction into a recurring stream — the deal structure is already built to scale through relationships.</div></div>
+      </div>
+      <div class="card-sm gap">
+        <div class="csm-ico">📹</div>
+        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>No content strategy whatsoever.</strong> Portfolio-level decision-makers don't respond to cold outreach. They need to already know your name before the call. Right now, they don't.</div></div>
+      </div>
+      <div class="card-sm gap">
+        <div class="csm-ico">🎯</div>
+        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>Bottom-up sales still dominant.</strong> LinkedIn automation and Valley work — but they reach the wrong level. The top-down shift is strategic; it needs content that speaks enterprise-first.</div></div>
+      </div>
+      <div class="card-sm gap">
+        <div class="csm-ico">⚡</div>
+        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>FIFA World Cup window is closing.</strong> This is a defined, time-sensitive moment to own the connectivity narrative for high-traffic venues. Miss it and the next one is 4 years away.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     THE SIGNAL
+════════════════════════════════════════════ -->
+<section class="sig-section" id="signal">
+  <div class="eyebrow reveal">02 — The System</div>
+  <h2 class="sh reveal" style="font-size:clamp(3rem,5.5vw,5.5rem);">The <em>Signal</em> System.</h2>
+  <p class="sig-sub reveal">Enterprise buyers don't respond to cold calls. They respond to signal — authority content, visible proof, and introductions from people they already trust. This is how you become the obvious choice before they even take the meeting.</p>
+
+  <div class="sig-grid reveal">
+    <div class="sig-cell">
+      <div class="sig-num">01</div>
+      <div class="sig-title">Authority Content Goes Live</div>
+      <div class="sig-desc">Case studies, deployment stories, and FIFA World Cup connectivity content hit LinkedIn and YouTube. Portfolio owners and hospitality executives see your name before they ever need you.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">02</div>
+      <div class="sig-title">Enterprise Buyers Notice</div>
+      <div class="sig-desc">A hedge fund manager sees the McCarthy case study. A hotel group CEO watches your Jazzfest deployment video. The content does the first meeting's work before you pick up the phone.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">03</div>
+      <div class="sig-title">Outreach Converts Warmer</div>
+      <div class="sig-desc">When Valley and your outside reps follow up, the prospect already has context. Open rates climb. Show rates climb. "I've seen your content" becomes the opening line, not dead air.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">04</div>
+      <div class="sig-title">Partners Refer In</div>
+      <div class="sig-desc">Your 30% revenue share model activates. Hospitality contacts, commercial real estate brokers, and industry connectors start making introductions — because your brand is now something worth introducing.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">05</div>
+      <div class="sig-title">Portfolio Deals Close</div>
+      <div class="sig-desc">One hotel group becomes 12 properties. One car wash operator becomes a regional chain. One clinic system becomes a 40-location deployment. The enterprise decision unlocks at-scale.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">06</div>
+      <div class="sig-title">Compliance Story Spreads</div>
+      <div class="sig-desc">The McCarthy audit becomes a content pillar — a public proof of enterprise-readiness that other enterprise buyers use to justify moving forward. One win, told well, opens ten doors.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">07</div>
+      <div class="sig-title">FIFA Moment Captured</div>
+      <div class="sig-desc">A focused World Cup content sprint targets hotel, stadium, and hospitality operators facing connectivity problems. Time-bound, specific, urgent — and you're the only one telling this story.</div>
+    </div>
+    <div class="sig-cell">
+      <div class="sig-num">08</div>
+      <div class="sig-title">Signal Compounds</div>
+      <div class="sig-desc">More visible proof = stronger referral conversations = warmer outreach = shorter sales cycles = more deployments = more proof. It compounds every month. That's self-sufficiency.</div>
+    </div>
+  </div>
+
+  <div class="sig-pull reveal">
+    <p>"Valley gets you <em>in front of</em> decision-makers. This system makes them <em>already know you</em> — so when you show up, the conversation is already halfway done."</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     DELIVERABLES
+════════════════════════════════════════════ -->
+<section class="section white" id="deliverables">
+  <div class="eyebrow reveal">03 — Deliverables</div>
+  <h2 class="sh reveal">Three systems.<br><em>One retainer.</em></h2>
+
+  <div class="build-grid reveal" style="margin-top:3.5rem;">
+
+    <!-- CONTENT CARD -->
+    <div class="build-card">
+      <div class="bc-head">
+        <div class="bc-tag">01 — Content</div>
+        <div class="bc-title">Brand signal that reaches portfolio buyers.</div>
+      </div>
+      <div class="bc-body">
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>8–12 short-form videos/month</strong> — deployment stories, case study clips, connectivity problem/solution content built for LinkedIn-active portfolio owners and hospitality executives.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>LinkedIn posts in Jose's voice</strong> — authority positioning so enterprise buyers recognize your name before your rep calls.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>McCarthy case study</strong> — produced in month one as a polished, shareable enterprise asset. The proof that opens doors.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>FIFA World Cup content sprint</strong> — targeted pieces for hotel and hospitality operators about cellular congestion during peak-traffic events. Nobody else is running this story.</div></div>
+      </div>
+    </div>
+
+    <!-- AI AGENTS CARD -->
+    <div class="build-card dark">
+      <div class="bc-head">
+        <div class="bc-tag">02 + 03 — Lead AI Agent + Cold Email AI Agent</div>
+        <div class="bc-title">Two agents. Running 24/7. Built for your ICP.</div>
+      </div>
+      <div class="bc-body">
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Lead AI Agent — custom-trained on your business.</strong> Qualifies every inbound lead instantly, books discovery calls automatically, and runs post-call follow-up sequences. Nothing falls through when you're on the road or on a call.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Cold Email AI Agent — outreach at scale.</strong> Builds portfolio-level prospect lists monthly — hedge fund owners with hospitality assets, multi-unit operators, commercial real estate groups. Sends AI-personalized multi-step sequences, manages replies, and routes interested prospects straight to your inbox.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Both agents built custom for your company</strong> — trained on your services, your ICP, your scripts. Not a white-label tool any competitor can buy. Proprietary to your business.</div></div>
+        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Pipeline dashboard + monthly report</strong> — every prospect, touchpoint, meetings booked, and deal stage in one view. The data your co-founders need to validate the initiative every 30 days.</div></div>
+      </div>
+    </div>
+
+    <div class="tech-banner">
+      <div class="tb-icon">⚡</div>
+      <div class="tb-text"><strong>Content warms. Agents close.</strong> The content makes portfolio buyers already know your name. The lead agent captures every inbound. The cold email agent finds the ones who don't know you yet and brings them in. All three run together — and every client they produce earns us 30% for the life of that contract.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     NUMBERS
+════════════════════════════════════════════ -->
+<section class="section off" id="numbers">
+  <div class="eyebrow reveal">04 — The Numbers</div>
+  <h2 class="sh reveal">One portfolio deal.<br><em>Changes everything.</em></h2>
+
+  <div class="num-trio reveal">
+    <div class="num-box">
+      <div class="nb-val">3–4<em>/wk</em></div>
+      <div class="nb-lab">Discovery calls today</div>
+      <div class="nb-sub">Mostly bottom-up, mostly individual venues</div>
+    </div>
+    <div class="num-box accent">
+      <div class="nb-val">$3,500<em>/mo</em></div>
+      <div class="nb-lab">One retainer. Three systems.</div>
+      <div class="nb-sub">Content + Lead AI Agent + Cold Email AI Agent</div>
+    </div>
+    <div class="num-box">
+      <div class="nb-val">10<em>+</em></div>
+      <div class="nb-lab">Venues per enterprise deal</div>
+      <div class="nb-sub">One portfolio owner, one conversation, 10x the deployment</div>
+    </div>
+  </div>
+
+  <div class="tbl-title reveal">What shifts when you go top-down</div>
+  <div class="table-wrap reveal">
+  <table>
+    <thead>
+      <tr><th>Approach</th><th>Decision-Maker</th><th>Deployment Scale</th><th>Sales Cycle</th><th>Revenue Outcome</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bottom-up (today)</td><td>Individual venue manager</td><td>1 location</td><td>4–8 weeks</td><td class="to">1× venue contract</td></tr>
+      <tr><td>Top-down (target)</td><td>Portfolio owner / hedge fund</td><td>10–50 locations</td><td>8–16 weeks</td><td class="tg">10–50× venue contracts</td></tr>
+      <tr><td>Event vertical</td><td>Event producer / AT&T partner</td><td>1 event = 50K+ attendees</td><td>2–4 weeks</td><td class="tg">Premium day-rate + exposure</td></tr>
+      <tr><td>Partner referral</td><td>Warm intro from hospitality contact</td><td>Portfolio-wide</td><td>4–8 weeks (warm)</td><td class="tg">30% rev share unlocked for partner</td></tr>
+      <tr class="total-row"><td>Signal System goal</td><td>Portfolio-level, inbound-warm</td><td>Multi-location deployments</td><td>Compressed by content</td><td class="tg">Self-sufficiency by end of round</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="tbl-title reveal">The enterprise deal math</div>
+  <div class="venue-grid reveal">
+    <div class="venue-box">
+      <div class="vb-scenario">Today (estimated)</div>
+      <div class="vb-n">4–6</div>
+      <div class="vb-sub">single-venue deals / quarter</div>
+      <div class="vb-rev">Conservative ARR · <strong>Fragmented</strong></div>
+    </div>
+    <div class="venue-box">
+      <div class="vb-scenario">1 portfolio deal (10 venues)</div>
+      <div class="vb-n">10×</div>
+      <div class="vb-sub">revenue of one venue deal</div>
+      <div class="vb-rev">Same sales effort · <strong>10× output</strong></div>
+    </div>
+    <div class="venue-box">
+      <div class="vb-scenario">2 portfolio deals / quarter</div>
+      <div class="vb-n">20+</div>
+      <div class="vb-sub">locations activated</div>
+      <div class="vb-rev">Referral engine live · <strong>Compounding</strong></div>
+    </div>
+    <div class="venue-box hot">
+      <div class="vb-scenario">Signal System running</div>
+      <div class="vb-n">Self-</div>
+      <div class="vb-sub">sufficient</div>
+      <div class="vb-rev">Final round deployed · <strong>No next raise needed</strong></div>
+    </div>
+  </div>
+  <p class="venue-fn reveal">Estimates based on your stated goal of reaching self-sufficiency through this $500K round. Portfolio deal scale assumptions are conservative — single hospitality groups regularly manage 15–30 properties.</p>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ROI
+════════════════════════════════════════════ -->
+<section class="section white" id="roi">
+  <div class="eyebrow reveal">05 — Return on Investment</div>
+  <h2 class="sh reveal">The math is<br><em>straightforward.</em></h2>
+
+  <div style="margin-top:4rem;">
+
+    <div class="grid-3col reveal">
+      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem;">Monthly Retainer</div>
+        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:var(--navy);line-height:1;">$3,500<span style="font-size:1.6rem;color:var(--mid);">/mo</span></div>
+        <div style="font-size:.82rem;font-weight:300;color:var(--body);margin-top:.5rem;">Content + Lead AI Agent + Cold Email AI Agent. All three running. One number.</div>
+      </div>
+      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--navy);border:1.5px solid transparent;">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:.6rem;">Deals Needed to Break Even</div>
+        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:#fff;line-height:1;">1<span style="font-size:1.6rem;color:var(--mist);"> deal</span></div>
+        <div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.5rem;">One portfolio deal covers the full year at $3,500/mo — with room to spare</div>
+      </div>
+      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem;">Our Rev Share — Every Client</div>
+        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:var(--navy);line-height:1;">30<span style="font-size:1.6rem;color:var(--mid);">%</span></div>
+        <div style="font-size:.82rem;font-weight:300;color:var(--body);margin-top:.5rem;">Every client we bring — through content, cold email, or direct intro — earns us 30% for the life of that contract</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;" class="reveal">
+      <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:1rem;">Where the value comes from</div>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Value Source</th><th>How It Works</th><th>Conservative Monthly</th><th>Annual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Warmer outreach conversion lift</td><td>Content familiarity increases meeting show rate by est. 30–40%</td><td class="tg">+1–2 extra calls/week</td><td class="tg">50–100 more enterprise conversations</td></tr>
+          <tr><td>Portfolio deal pipeline</td><td>1 extra portfolio deal/quarter from content-warmed prospects</td><td class="tg">Varies by contract</td><td class="tg">10–50 new venue deployments</td></tr>
+          <tr><td>FIFA / event vertical</td><td>Time-sensitive campaign targeting hotel + stadium operators</td><td class="tg">$10,000–$30,000</td><td class="tg">$120,000–$360,000</td></tr>
+          <tr><td>Partner referrals activated</td><td>30% rev share attracts hospitality + commercial RE intros</td><td class="tg">2–4 warm introductions</td><td class="tg">24–48 qualified referrals</td></tr>
+          <tr><td>Post-call follow-up recovery</td><td>Automated sequences recover prospects who went cold after discovery</td><td class="tg">$15,000</td><td class="tg">$180,000</td></tr>
+          <tr class="total-row"><td>Conservative annual upside</td><td>Based on 1 portfolio deal/quarter + event vertical + referrals</td><td class="tg">Significant</td><td class="to">Path to self-sufficiency</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="grid-2col reveal" style="margin-top:1.5rem;">
+      <div style="padding:2rem 2.2rem;border-radius:12px;background:var(--gold-bg);border:1.5px solid var(--gold-bd);">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Your Annual Investment</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--gold-bd);">
+            <span>Monthly retainer × 12</span><span style="font-weight:600;color:var(--ink);">$3,500 × 12</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:1rem;font-weight:700;color:var(--gold);margin-top:.3rem;">
+            <span>Total Year One</span><span>$42,000</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.2rem;">No setup fee. No contracts. Cancel anytime.</div>
+        </div>
+      </div>
+
+      <div style="padding:2rem 2.2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem;">What One Portfolio Win Looks Like</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
+            <span>10-venue deployment contract</span><span style="font-weight:600;color:var(--ink);">Your contract terms</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
+            <span>Event vertical (2 events / yr)</span><span style="font-weight:600;color:var(--ink);">$60K–$120K</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
+            <span>Partner referrals (est. 4 deals)</span><span style="font-weight:600;color:var(--ink);">Your contract × 4</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:1rem;font-weight:700;color:var(--navy);margin-top:.3rem;">
+            <span>vs. your $42K investment</span><span>Far above break-even</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-line-flex reveal" style="margin-top:1.5rem;padding:2rem 2.2rem;border-radius:12px;background:var(--navy);">
+      <div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.4rem;">The bottom line</div>
+        <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:#fff;line-height:1.3;">You invest <em style="color:var(--mist);font-style:normal;">$42,000</em> for the year. No setup. No contracts. One portfolio deal covers it. Every client we bring earns us <em style="color:var(--mist);font-style:normal;">30%</em> — so we're as motivated to close as you are.</div>
+      </div>
+      <div style="text-align:center;flex-shrink:0;">
+        <div style="font-family:'Fraunces',serif;font-size:4rem;font-weight:200;color:#fff;line-height:1;">60<span style="font-size:2rem;color:var(--mist);">days</span></div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);">To proof of concept</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FUTURE
+════════════════════════════════════════════ -->
+<section class="section pale" id="future">
+  <div class="future-grid">
+    <div class="reveal">
+      <div class="eyebrow">06 — The Bigger Picture</div>
+      <h2 class="sh" style="margin-bottom:1.8rem;">A business that closes<br><em>from the top down.</em></h2>
+      <div class="future-body">
+        <p>You've said it plainly: this is the final round. The goal is self-sufficiency — not more fundraising, not more runway, just a business that grows on its own from the revenue it generates.</p>
+        <p>Enterprise deals are how you get there. Not 4–6 individual venues a quarter — one portfolio owner who deploys across 20 properties, one hospitality group who becomes a 3-year contract. <strong>That's the math that works.</strong></p>
+        <p>Building the Signal System is how you make those conversations happen. The content makes you visible. The outreach makes you reachable. The case studies make you credible. And <strong>the FIFA window makes it urgent for buyers to move now.</strong></p>
+        <p>We're not just a vendor here. Jose — Alberto has already said it. We want to be in the sales cycle with you. That's what makes this different from hiring an agency.</p>
+      </div>
+    </div>
+    <div class="future-card reveal">
+      <p>"The goal is portfolio owners — people who say yes once and you're in 20 locations. The content we build makes your brand something worth introducing. And the <em>30% revenue share</em> means we're motivated to make those introductions every single month."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════ -->
+<section class="section white" id="pricing">
+  <div class="eyebrow reveal">07 — Investment</div>
+  <h2 class="sh reveal">One retainer.<br><em>Everything included.</em></h2>
+  <div style="max-width:560px;margin-bottom:3.5rem;" class="reveal">
+    <p style="font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);margin-top:1rem;">One monthly number covers everything — content, a custom lead AI agent, and a cold email AI agent built specifically for your company. No setup fee. No contracts. And for every client we introduce, we take 30% of the revenue for the life of that contract. <strong>We're not a vendor. We're in the deal with you.</strong></p>
+  </div>
+
+  <!-- SINGLE RETAINER CARD -->
+  <div class="reveal">
+    <div style="border-radius:20px;overflow:hidden;background:var(--navy);position:relative;box-shadow:0 20px 60px rgba(13,27,62,.25);">
+      <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.18),transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-100px;left:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);pointer-events:none;"></div>
+
+      <!-- HEADER -->
+      <div style="padding:3rem 3rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;">
+          <div>
+            <div style="display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--electric);color:#fff;padding:.3rem 1rem;border-radius:100px;margin-bottom:1rem;">Full System — One Price</div>
+            <div style="font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:#fff;line-height:1.2;margin-bottom:.5rem;">Content + Lead AI Agent<br><em style="color:var(--sky);">+ Cold Email AI Agent.</em></div>
+            <div style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.45);max-width:420px;margin-top:.8rem;">Three systems working together. Content warms the market. The lead AI agent qualifies and books. The cold email AI agent runs outreach at scale. All built custom for your company.</div>
+          </div>
+          <div style="text-align:center;flex-shrink:0;">
+            <div style="font-family:'Fraunces',serif;font-size:5.5rem;font-weight:200;color:#fff;line-height:1;">$3,500</div>
+            <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-top:.3rem;">/month</div>
+            <div style="font-size:.68rem;color:rgba(255,255,255,.3);margin-top:.2rem;">No contracts · Cancel anytime</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THREE PILLARS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.06);position:relative;z-index:1;" class="pricing-features" id="three-pillars">
+        <!-- CONTENT -->
+        <div style="padding:2.2rem 2rem;background:rgba(255,255,255,.02);">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">01 — Content</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Brand signal that makes buyers know you before you call.</div>
+          <div style="display:flex;flex-direction:column;gap:.65rem;">
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>8–12 short-form videos/month</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>LinkedIn posts in Jose's voice</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>McCarthy case study asset</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>FIFA World Cup sprint</div>
+          </div>
+        </div>
+        <!-- LEAD AI AGENT -->
+        <div style="padding:2.2rem 2rem;background:rgba(59,130,246,.06);border-left:1px solid rgba(255,255,255,.06);border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">02 — Lead AI Agent</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Qualifies, follows up, and books — without you in the loop.</div>
+          <div style="display:flex;flex-direction:column;gap:.65rem;">
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Custom-trained on your services + ICP</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Qualifies inbound leads instantly</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Books discovery calls automatically</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Post-call follow-up sequences</div>
+          </div>
+        </div>
+        <!-- COLD EMAIL AI AGENT -->
+        <div style="padding:2.2rem 2rem;background:rgba(255,255,255,.02);">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">03 — Cold Email AI Agent</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Outreach at scale. Personalized. Running 24/7.</div>
+          <div style="display:flex;flex-direction:column;gap:.65rem;">
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Portfolio-level prospect lists built monthly</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>AI-personalized outreach at scale</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Multi-step sequences, auto-managed</div>
+            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Replies routed to your inbox</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;position:relative;z-index:1;">
+        <div style="font-size:.87rem;font-weight:300;color:rgba(255,255,255,.4);">Pipeline dashboard + monthly report included every month.</div>
+        <a href="https://buy.stripe.com/cNi9AT4X686C1V04YE53O0P" style="display:inline-block;padding:1rem 2.4rem;border-radius:8px;background:#fff;color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0;">Pay Now — Let's Start</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30% REV SHARE CALLOUT -->
+  <div style="margin-top:1.5rem;padding:2.2rem 2.8rem;border-radius:12px;background:var(--ink);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;" class="reveal">
+    <div style="flex:1;min-width:240px;">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Beyond the retainer</div>
+      <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:#fff;line-height:1.4;">For <em style="color:var(--sky);font-style:normal;">every client we bring you</em> — whether through content, the cold email agent, or a direct introduction — we earn <em style="color:var(--sky);font-style:normal;">30% of that contract's revenue</em> for its full duration. Not a finder's fee. A partnership.</div>
+      <div style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4);margin-top:.8rem;">This is the same rate you offer any partner. We're aligned to close deals, not just run campaigns.</div>
+    </div>
+    <div style="text-align:center;flex-shrink:0;">
+      <div style="font-family:'Fraunces',serif;font-size:5rem;font-weight:200;color:#fff;line-height:1;">30<span style="font-size:2.2rem;color:var(--sky);">%</span></div>
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.3rem;">On every client. Every contract.</div>
+    </div>
+  </div>
+
+  <p class="price-fn reveal" style="margin-top:1.2rem;">No contracts. No setup fees. We earn your business every 30 days.</p>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TIMELINE
+════════════════════════════════════════════ -->
+<section class="section off" id="timeline">
+  <div class="eyebrow reveal">08 — Launch Plan</div>
+  <h2 class="sh reveal">Signal live<br><em>in 30 days.</em></h2>
+
+  <div class="tl-row reveal">
+    <div class="tl-item">
+      <div class="tl-dot">1</div>
+      <div class="tl-wk">Week 1</div>
+      <div class="tl-title">Strategy + Audit</div>
+      <div class="tl-desc">Content audit, enterprise ICP definition, McCarthy case study outline drafted, FIFA sprint planned, outreach system mapped</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2</div>
+      <div class="tl-wk">Week 2</div>
+      <div class="tl-title">Infrastructure Live</div>
+      <div class="tl-desc">Outreach sequences loaded, pipeline dashboard live, partner activation deck complete, McCarthy case study in production</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">3</div>
+      <div class="tl-wk">Week 3</div>
+      <div class="tl-title">First Content Live</div>
+      <div class="tl-desc">First 4 short-form videos published. First LinkedIn posts in Jose's voice. FIFA World Cup content series kicks off.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">4</div>
+      <div class="tl-wk">Week 4</div>
+      <div class="tl-title">Outreach Warms</div>
+      <div class="tl-desc">McCarthy case study goes live as a shareable asset. Partner referral outreach begins. First warm follow-up sequences deployed.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">5</div>
+      <div class="tl-wk">Month 2+</div>
+      <div class="tl-title">Signal Running</div>
+      <div class="tl-desc">Track meetings booked, pipeline value, content reach. Optimize every 30 days. Report delivered to co-founders monthly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CTA
+════════════════════════════════════════════ -->
+<section class="cta" id="cta">
+  <div class="cta-ring">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cta-ey">Ready when you are, Jose</div>
+  <h2 class="cta-h">Let's build<br>the <em>signal.</em></h2>
+  <p class="cta-sub">One conversation. We'll walk through exactly how this works for your enterprise push — and how we get into the sales cycle together.</p>
+
+  <div class="cta-people">
+    <div>
+      <div class="cp-role">Content + Strategy — DR&amp;AV</div>
+      <div class="cp-name">Dani</div>
+      <div class="cp-num">+1 438 630 7806</div>
+    </div>
+    <div>
+      <div class="cp-role">AI Systems + Outreach</div>
+      <div class="cp-name">Alberto</div>
+      <div class="cp-num">+1 786 390 0074</div>
+    </div>
+  </div>
+
+  <div class="cta-btns">
+    <a href="https://buy.stripe.com/cNi9AT4X686C1V04YE53O0P" class="cta-btn p">Pay Now — Let's Start</a>
+    <a href="https://wa.me/14386307806?text=Hey%20Dani%2C%20ready%20to%20talk%20about%20the%20Signal%20proposal" class="cta-btn o">WhatsApp Dani</a>
+    <a href="https://wa.me/17863900074?text=Hey%20Alberto%2C%20ready%20to%20talk%20about%20the%20Signal%20proposal" class="cta-btn o">WhatsApp Alberto</a>
+  </div>
+
+  <div class="cta-foot">
+    DR&amp;AV · Content + AI Systems · Proposal for Jose Torres · Valid 30 days
+  </div>
+</section>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 85);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
