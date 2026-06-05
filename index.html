@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jose × DR&AV — The Signal Proposal</title>
+<title>DR&amp;AD → LongFi — Partnership Proposal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,500;1,9..144,200;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,25 +11,28 @@
 <style>
 :root {
   --white:    #FFFFFF;
-  --off:      #F5F7FB;
-  --cream:    #EFF2F8;
-  --border:   #DDE3EF;
-  --border2:  #C8D2E8;
-  --navy:     #0D1B3E;
-  --navy2:    #142252;
-  --mid:      #1E3A8A;
-  --electric: #3B82F6;
-  --sky:      #60A5FA;
-  --mist:     #BFDBFE;
-  --pale:     #EFF6FF;
-  --pale2:    #DBEAFE;
-  --ink:      #060E24;
-  --dark:     #111C3B;
-  --body:     #3D4F6E;
-  --muted:    #7A8BA8;
-  --gold:     #D97706;
-  --gold-bg:  #FFFBEB;
-  --gold-bd:  #FDE68A;
+  --off:      #F6F8FB;
+  --cream:    #EEF2F8;
+  --border:   #DEE6F0;
+  --border2:  #C5D3E4;
+  --blue:     #0B2A52;
+  --blue2:    #133E73;
+  --mid:      #1F5BAA;
+  --cyan:     #3FA3D9;
+  --mist:     #B6D6EC;
+  --pale:     #E8F1F9;
+  --pale2:    #D2E5F2;
+  --ink:      #0A1424;
+  --dark:     #142238;
+  --body:     #45556D;
+  --muted:    #7A8AA1;
+  --gold:     #B8863A;
+  --gold-bg:  #FBF5EB;
+  --gold-bd:  #E8D0A0;
+  --red:      #C44141;
+  --maple:    #D94B3A;
+  --maple-bg: #FCF0EE;
+  --maple-bd: #F0CCC6;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,9 +56,9 @@ nav {
 .nav-brand {
   font-family: 'Fraunces', serif;
   font-weight: 300; font-size: 1rem;
-  color: var(--navy); letter-spacing: .02em;
+  color: var(--blue); letter-spacing: .02em;
 }
-.nav-brand em { font-style: italic; color: var(--electric); }
+.nav-brand em { font-style: italic; color: var(--cyan); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   font-size: .73rem; font-weight: 500;
@@ -63,15 +66,15 @@ nav {
   color: var(--muted); text-decoration: none;
   transition: color .25s;
 }
-.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover { color: var(--blue); }
 .nav-btn {
   font-size: .72rem; font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase;
   padding: .6rem 1.6rem; border-radius: 100px;
-  background: var(--navy); color: #fff;
+  background: var(--blue); color: #fff;
   text-decoration: none; transition: background .25s;
 }
-.nav-btn:hover { background: var(--navy2); }
+.nav-btn:hover { background: var(--blue2); }
 
 /* ── REVEAL ────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
@@ -85,79 +88,49 @@ nav {
   padding: 10rem 3rem 5.5rem;
   position: relative; overflow: hidden;
 }
-.hero-bg-circle {
-  position: absolute; border-radius: 50%; pointer-events: none;
-}
+.hero-bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
 .hbc1 {
   width: 800px; height: 800px;
   top: -200px; right: -150px;
-  background: radial-gradient(circle, rgba(59,130,246,.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(63,163,217,.32) 0%, transparent 70%);
   animation: breathe 12s ease-in-out infinite;
 }
 .hbc2 {
   width: 500px; height: 500px;
   bottom: -100px; left: -100px;
-  background: radial-gradient(circle, rgba(13,27,62,.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(31,91,170,.18) 0%, transparent 70%);
   animation: breathe 16s ease-in-out infinite reverse;
 }
-.hbc3 {
-  width: 300px; height: 300px;
-  top: 40%; left: 30%;
-  background: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 70%);
-  animation: breathe 20s ease-in-out infinite;
-}
 @keyframes breathe { 0%,100%{transform:scale(1);} 50%{transform:scale(1.18);} }
-
-/* signal ring animation */
-.signal-rings {
-  position: absolute;
-  top: 18%; right: 12%;
-  pointer-events: none;
-}
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(59,130,246,.15);
-  transform: translate(-50%,-50%);
-  animation: ring-expand 4s ease-out infinite;
-}
-.ring:nth-child(1) { width: 120px; height: 120px; animation-delay: 0s; }
-.ring:nth-child(2) { width: 240px; height: 240px; animation-delay: 1s; }
-.ring:nth-child(3) { width: 360px; height: 360px; animation-delay: 2s; }
-.ring:nth-child(4) { width: 480px; height: 480px; animation-delay: 3s; }
-@keyframes ring-expand {
-  0% { opacity: 0.6; transform: translate(-50%,-50%) scale(.7); }
-  100% { opacity: 0; transform: translate(-50%,-50%) scale(1); }
-}
 
 .hero-label {
   display: flex; align-items: center; gap: .75rem;
   font-size: .68rem; font-weight: 500;
   letter-spacing: .18em; text-transform: uppercase;
-  color: var(--sky); margin-bottom: 2rem;
+  color: var(--cyan); margin-bottom: 2rem;
   opacity: 0; animation: fadeUp .8s .3s forwards;
 }
 .hero-label-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--electric);
+  background: var(--cyan);
   animation: pulse-dot 2.5s ease-in-out infinite;
 }
 @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:.2;} }
 
 .hero-h {
   font-family: 'Fraunces', serif;
-  font-size: clamp(3.5rem, 7.5vw, 8.5rem);
+  font-size: clamp(3.5rem, 7.5vw, 8rem);
   font-weight: 200; line-height: .92;
   letter-spacing: -.02em; color: #fff;
   opacity: 0; animation: fadeUp 1s .5s forwards;
 }
-.hero-h em { font-style: italic; color: var(--sky); }
+.hero-h em { font-style: italic; color: var(--cyan); }
 
 .hero-sub {
   margin-top: 2.5rem;
   font-size: 1.02rem; font-weight: 300;
-  line-height: 1.8; color: rgba(255,255,255,.45);
-  max-width: 480px;
+  line-height: 1.8; color: rgba(255,255,255,.55);
+  max-width: 620px;
   opacity: 0; animation: fadeUp .9s .72s forwards;
 }
 
@@ -175,10 +148,7 @@ nav {
   font-size: .8rem; font-weight: 400;
   color: rgba(255,255,255,.65);
 }
-.chip-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--electric); flex-shrink: 0;
-}
+.chip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
 
 .hero-stats {
   display: flex; gap: 3.5rem; flex-wrap: wrap;
@@ -188,14 +158,14 @@ nav {
 }
 .hs-n {
   font-family: 'Fraunces', serif;
-  font-size: 2.8rem; font-weight: 200;
+  font-size: 2.4rem; font-weight: 200;
   color: #fff; line-height: 1;
 }
-.hs-n em { color: var(--sky); font-style: normal; font-size: 1.7rem; }
+.hs-n em { color: var(--cyan); font-style: normal; font-size: 1.5rem; }
 .hs-l {
   font-size: .62rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(255,255,255,.28); margin-top: .25rem;
+  color: rgba(255,255,255,.32); margin-top: .25rem;
 }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;} }
@@ -224,206 +194,290 @@ nav {
   font-weight: 200; line-height: 1.05;
   letter-spacing: -.01em; color: var(--ink);
 }
-.sh em { font-style: italic; color: var(--navy); }
+.sh em { font-style: italic; color: var(--blue); }
 
-/* ── SITUATION ─────────────────────────────────── */
-.sit-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; margin-top: 4rem; align-items: start;
+/* ── LETTER ────────────────────────────────────── */
+.letter-box {
+  margin-top: 3.5rem;
+  padding: 3rem 3.5rem;
+  border-radius: 16px;
+  background: var(--pale);
+  border: 1.5px solid var(--mist);
+  position: relative;
+  overflow: hidden;
 }
-.sit-body {
+.letter-box::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 6px; height: 100%;
+  background: var(--blue);
+}
+.letter-greeting {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-style: italic; font-weight: 300;
+  color: var(--blue); margin-bottom: 1.3rem;
+}
+.letter-body {
   font-size: 1.02rem; font-weight: 300;
   line-height: 1.85; color: var(--body);
 }
-.sit-body p + p { margin-top: 1.3rem; }
-.sit-body strong { color: var(--ink); font-weight: 600; }
-
-.cards { display: flex; flex-direction: column; gap: .75rem; }
-.card-sm {
-  padding: 1.3rem 1.5rem;
-  border-radius: 10px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  display: flex; gap: 1rem; align-items: flex-start;
-  transition: border-color .25s, box-shadow .25s;
-}
-.card-sm:hover { border-color: var(--mist); box-shadow: 0 4px 20px rgba(59,130,246,.07); }
-.card-sm.good { border-color: var(--mist); background: var(--pale); }
-.card-sm.gap { border-color: var(--gold-bd); background: var(--gold-bg); }
-.csm-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: .05rem; }
-.csm-label {
-  font-size: .6rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
-  margin-bottom: .3rem;
-}
-.good .csm-label { color: var(--mid); }
-.gap .csm-label { color: var(--gold); }
-.csm-text { font-size: .86rem; font-weight: 300; line-height: 1.6; color: var(--body); }
-.csm-text strong { color: var(--ink); font-weight: 600; }
-
-/* ── SIGNAL SECTION ────────────────────────────── */
-.sig-section { background: var(--ink); padding: 7rem 3rem; }
-.sig-section .eyebrow { color: var(--sky); }
-.sig-section .eyebrow::before { background: var(--sky); }
-.sig-section .sh { color: #fff; }
-.sig-section .sh em { color: var(--sky); }
-.sig-sub {
-  font-size: 1rem; font-weight: 300;
-  line-height: 1.78; color: rgba(255,255,255,.55);
-  max-width: 500px; margin-top: 1rem;
-}
-
-.sig-grid {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 2px; margin-top: 4rem;
-  background: rgba(255,255,255,.06);
-  border-radius: 16px; overflow: hidden;
-}
-.sig-cell {
-  background: rgba(255,255,255,.03);
-  padding: 2.5rem 2rem;
-  cursor: default;
-  border-bottom: 2px solid transparent;
-  transition: all .3s;
-}
-.sig-cell:hover {
-  background: rgba(59,130,246,.18);
-  border-bottom-color: var(--electric);
-}
-.sig-num {
+.letter-body p + p { margin-top: 1.2rem; }
+.letter-body strong { color: var(--ink); font-weight: 600; }
+.letter-body em { color: var(--blue); font-style: italic; }
+.letter-sig {
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--mist);
   font-family: 'Fraunces', serif;
-  font-size: 3rem; font-weight: 200;
-  color: rgba(96,165,250,.2); line-height: 1;
-  margin-bottom: .9rem;
-}
-.sig-title {
-  font-size: .9rem; font-weight: 600;
-  color: #fff; margin-bottom: .6rem;
-  letter-spacing: .02em;
-}
-.sig-desc {
-  font-size: .83rem; font-weight: 300;
-  line-height: 1.65; color: rgba(255,255,255,.45);
+  font-size: 1.1rem; font-weight: 300; font-style: italic;
+  color: var(--ink);
 }
 
-.sig-pull {
-  margin-top: 3.5rem;
-  padding: 2.5rem 2.8rem;
-  background: rgba(59,130,246,.12);
-  border-left: 4px solid var(--electric);
-  border-radius: 0 12px 12px 0;
-}
-.sig-pull p {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem; font-style: italic; font-weight: 300;
-  line-height: 1.65; color: rgba(255,255,255,.8);
-}
-.sig-pull p em { color: var(--sky); font-style: normal; font-weight: 500; }
-
-/* ── BUILD ─────────────────────────────────────── */
-.build-grid {
+/* ── REFRAME CARDS ─────────────────────────────── */
+.reframe-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; margin-top: 4rem;
+  gap: 1.5rem; margin-top: 3rem;
 }
-.build-card {
-  border-radius: 12px; overflow: hidden;
-  border: 1.5px solid var(--border);
+.rf-card {
+  padding: 2.2rem 2.4rem;
+  border-radius: 12px;
   background: var(--white);
+  border: 1.5px solid var(--border);
 }
-.build-card.dark {
-  background: var(--ink);
+.rf-card.before { opacity: .85; }
+.rf-card.after {
+  background: var(--ink); color: #fff;
   border-color: transparent;
 }
-.bc-head {
-  padding: 2rem 2rem 1.6rem;
+.rf-tag {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: .6rem;
+}
+.rf-card.after .rf-tag { color: var(--cyan); }
+.rf-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-weight: 300;
+  color: var(--ink); margin-bottom: 1.1rem;
+  line-height: 1.25;
+}
+.rf-card.after .rf-title { color: #fff; }
+.rf-list { list-style: none; padding: 0; }
+.rf-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: .65rem;
+  font-size: .9rem; font-weight: 300;
+  line-height: 1.6; color: var(--body);
+}
+.rf-card.after .rf-list li { color: rgba(255,255,255,.65); }
+.rf-card.before .rf-list li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--muted); font-weight: 600;
+}
+.rf-card.after .rf-list li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--cyan); font-weight: 700;
+}
+.rf-list li strong { color: var(--ink); font-weight: 600; }
+.rf-card.after .rf-list li strong { color: #fff; }
+
+/* ── NETWORK CARDS ─────────────────────────────── */
+.net-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 3.5rem;
+}
+.net-card {
+  border-radius: 14px; overflow: hidden;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+}
+.net-card.canada { border-color: var(--maple-bd); }
+.net-head {
+  padding: 1.8rem 2rem 1.4rem;
   border-bottom: 1.5px solid var(--border);
 }
-.build-card.dark .bc-head {
-  border-bottom-color: rgba(255,255,255,.07);
+.net-card.canada .net-head { background: var(--maple-bg); border-bottom-color: var(--maple-bd); }
+.net-card.usa .net-head { background: var(--pale); border-bottom-color: var(--mist); }
+.net-flag {
+  display: inline-block;
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  padding: .3rem .8rem; border-radius: 100px;
+  margin-bottom: .8rem;
 }
-.bc-tag {
-  font-size: .62rem; font-weight: 600;
+.net-card.canada .net-flag { background: var(--maple); color: #fff; }
+.net-card.usa .net-flag { background: var(--blue); color: #fff; }
+.net-operator {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem; font-weight: 300; color: var(--ink);
+  margin-bottom: .25rem;
+}
+.net-operator em { color: var(--blue); font-style: italic; }
+.net-card.canada .net-operator em { color: var(--maple); }
+.net-role {
+  font-size: .8rem; font-weight: 500;
+  color: var(--muted); letter-spacing: .04em;
+}
+.net-body { padding: 1.6rem 2rem 2rem; }
+.net-section-label {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: .55rem;
+  margin-top: 1.2rem;
+}
+.net-section-label:first-child { margin-top: 0; }
+.net-card.canada .net-section-label { color: var(--maple); }
+.net-list { list-style: none; padding: 0; margin-bottom: .4rem; }
+.net-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: .42rem;
+  font-size: .87rem; font-weight: 300;
+  line-height: 1.55; color: var(--body);
+}
+.net-list li::before {
+  content: '·'; position: absolute; left: 0; top: -2px;
+  color: var(--blue); font-weight: 700; font-size: 1.2rem;
+}
+.net-card.canada .net-list li::before { color: var(--maple); }
+.net-list li strong { color: var(--ink); font-weight: 600; }
+
+/* ── CANADA FOCUS BLOCK ────────────────────────── */
+.canada-focus {
+  margin-top: 4rem;
+  padding: 3rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--maple-bg) 0%, var(--white) 70%);
+  border: 1.5px solid var(--maple-bd);
+  position: relative; overflow: hidden;
+}
+.cf-flag {
+  display: inline-block;
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: .35rem 1rem; border-radius: 100px;
+  background: var(--maple); color: #fff;
+  margin-bottom: 1rem;
+}
+.cf-title {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem; font-weight: 300;
+  line-height: 1.2; color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.cf-title em { color: var(--maple); font-style: italic; }
+.cf-body {
+  font-size: 1rem; font-weight: 300;
+  line-height: 1.8; color: var(--body);
+  max-width: 720px;
+}
+.cf-body p + p { margin-top: 1rem; }
+.cf-body strong { color: var(--ink); font-weight: 600; }
+
+.cf-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1rem; margin-top: 2rem;
+}
+.cf-tile {
+  padding: 1.4rem 1.5rem;
+  background: var(--white);
+  border-radius: 10px;
+  border: 1.5px solid var(--maple-bd);
+}
+.cf-tile-tag {
+  font-size: .58rem; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--maple); margin-bottom: .4rem;
+}
+.cf-tile-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 400; color: var(--ink);
+  margin-bottom: .4rem;
+}
+.cf-tile-desc {
+  font-size: .8rem; font-weight: 300;
+  line-height: 1.55; color: var(--body);
+}
+
+/* ── PROOF POINT ───────────────────────────────── */
+.proof-box {
+  margin-top: 2rem;
+  padding: 2rem 2.2rem;
+  border-left: 4px solid var(--cyan);
+  background: rgba(63,163,217,.08);
+  border-radius: 0 12px 12px 0;
+}
+.proof-tag {
+  font-size: .6rem; font-weight: 700;
   letter-spacing: .15em; text-transform: uppercase;
   color: var(--mid); margin-bottom: .5rem;
 }
-.build-card.dark .bc-tag { color: var(--sky); }
-.bc-title {
+.proof-quote {
   font-family: 'Fraunces', serif;
-  font-size: 1.6rem; font-weight: 300; color: var(--ink);
+  font-size: 1.25rem; font-style: italic; font-weight: 300;
+  line-height: 1.6; color: var(--ink);
 }
-.build-card.dark .bc-title { color: #fff; }
-.bc-body { padding: 1.8rem 2rem; }
-.bi {
-  display: flex; gap: .85rem; align-items: flex-start;
-  padding: .72rem 0; border-bottom: 1px solid var(--border);
-}
-.build-card.dark .bi { border-bottom-color: rgba(255,255,255,.05); }
-.bi:last-child { border-bottom: none; }
-.bi-dot {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--pale2); flex-shrink: 0; margin-top: .14rem;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .5rem; color: var(--navy); font-weight: 700;
-}
-.build-card.dark .bi-dot { background: rgba(96,165,250,.15); color: var(--sky); }
-.bi-t { font-size: .87rem; font-weight: 300; line-height: 1.6; color: var(--body); }
-.build-card.dark .bi-t { color: rgba(255,255,255,.5); }
-.bi-t strong { color: var(--ink); font-weight: 600; }
-.build-card.dark .bi-t strong { color: #fff; }
+.proof-quote em { color: var(--blue); font-style: normal; font-weight: 500; }
 
-.tech-banner {
-  grid-column: 1 / -1;
-  padding: 1.7rem 2rem;
-  background: var(--pale);
-  border-radius: 10px;
-  border: 1.5px solid var(--mist);
-  display: flex; gap: 1.2rem; align-items: flex-start;
+/* ── PLAN — 4-WEEK GRID ────────────────────────── */
+.plan-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; margin-top: 3rem;
+  background: var(--border);
+  border-radius: 14px; overflow: hidden;
 }
-.tb-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
-.tb-text { font-size: .87rem; font-weight: 300; line-height: 1.65; color: var(--body); }
-.tb-text strong { color: var(--ink); font-weight: 600; }
-
-/* ── NUMBERS ───────────────────────────────────── */
-.num-trio {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1.5rem; margin-top: 4rem;
-}
-.num-box {
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  border: 1.5px solid var(--border);
+.plan-week {
+  padding: 2rem 1.6rem;
   background: var(--white);
 }
-.num-box.accent {
-  background: var(--navy); border-color: transparent;
-}
-.nb-val {
+.plan-week.hot { background: var(--blue); }
+.pw-num {
   font-family: 'Fraunces', serif;
-  font-size: 3.2rem; font-weight: 200;
-  color: var(--ink); line-height: 1;
+  font-size: 2.4rem; font-weight: 200;
+  color: var(--blue); line-height: 1;
+  margin-bottom: .15rem;
 }
-.num-box.accent .nb-val { color: #fff; }
-.nb-val em { color: var(--navy); font-style: normal; font-size: 2rem; }
-.num-box.accent .nb-val em { color: var(--mist); }
-.nb-lab {
-  font-size: .62rem; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted); margin-top: .6rem;
+.plan-week.hot .pw-num { color: #fff; }
+.pw-label {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.2rem;
 }
-.num-box.accent .nb-lab { color: rgba(255,255,255,.45); }
-.nb-sub { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
-.num-box.accent .nb-sub { color: rgba(255,255,255,.35); }
+.plan-week.hot .pw-label { color: var(--mist); }
+.pw-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem; font-weight: 500;
+  color: var(--ink); margin-bottom: .8rem;
+  line-height: 1.3;
+}
+.plan-week.hot .pw-title { color: #fff; }
+.pw-list { list-style: none; padding: 0; }
+.pw-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: .5rem;
+  font-size: .82rem; font-weight: 300;
+  line-height: 1.5; color: var(--body);
+}
+.plan-week.hot .pw-list li { color: rgba(255,255,255,.7); }
+.pw-list li::before {
+  content: '→';
+  position: absolute; left: 0; top: -1px;
+  color: var(--cyan); font-weight: 700; font-size: .8rem;
+}
+.plan-week.hot .pw-list li::before { color: var(--mist); }
 
+/* ── VOLUME / METRICS TABLE ────────────────────── */
 .tbl-title {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem; font-weight: 300;
   color: var(--ink); margin: 3.5rem 0 1rem;
 }
-
 table { width: 100%; border-collapse: collapse; font-size: .87rem; }
 th {
   text-align: left; padding: .8rem 1.1rem;
-  background: var(--navy); color: rgba(255,255,255,.7);
+  background: var(--blue); color: rgba(255,255,255,.75);
   font-size: .62rem; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase;
 }
@@ -436,141 +490,114 @@ td {
 }
 tr:last-child td { border-bottom: none; }
 tr:nth-child(even) td { background: var(--off); }
-.tg { color: var(--navy); font-weight: 600; }
-.to { color: var(--gold); font-weight: 600; }
+.tg { color: var(--blue); font-weight: 600; }
 .total-row td {
   background: var(--pale2) !important;
-  color: var(--navy); font-weight: 600;
+  color: var(--blue); font-weight: 600;
   font-size: .9rem;
 }
 
-.venue-grid {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 1px; margin-top: 3rem;
-  background: var(--border);
-  border-radius: 12px; overflow: hidden;
+/* ── CONTENT EXAMPLES ──────────────────────────── */
+.content-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.2rem; margin-top: 3rem;
 }
-.venue-box { padding: 2rem 1.6rem; background: var(--white); }
-.venue-box.hot { background: var(--navy); }
-.vb-scenario {
-  font-size: .6rem; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: .8rem;
-}
-.venue-box.hot .vb-scenario { color: var(--mist); }
-.vb-n {
-  font-family: 'Fraunces', serif;
-  font-size: 2.6rem; font-weight: 200;
-  color: var(--ink); line-height: 1;
-}
-.venue-box.hot .vb-n { color: #fff; }
-.vb-sub { font-size: .75rem; color: var(--muted); margin-top: .3rem; }
-.venue-box.hot .vb-sub { color: rgba(255,255,255,.4); }
-.vb-rev { font-size: .84rem; color: var(--muted); margin-top: .9rem; }
-.vb-rev strong { color: var(--ink); font-weight: 600; }
-.venue-box.hot .vb-rev strong { color: var(--mist); }
-.venue-fn { font-size: .8rem; font-weight: 300; font-style: italic; color: var(--muted); margin-top: 1.2rem; }
-
-/* ── FUTURE ────────────────────────────────────── */
-.future-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: center;
-}
-.future-body {
-  font-size: 1.02rem; font-weight: 300;
-  line-height: 1.85; color: var(--body);
-}
-.future-body p + p { margin-top: 1.3rem; }
-.future-body strong { color: var(--ink); font-weight: 600; }
-.future-card {
-  padding: 2.8rem;
+.ce-card {
+  padding: 1.7rem 1.9rem;
   border-radius: 12px;
-  background: var(--pale);
-  border: 1.5px solid var(--mist);
-  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  transition: border-color .25s, box-shadow .25s;
 }
-.future-card::before {
-  content: '"';
+.ce-card:hover { border-color: var(--mist); box-shadow: 0 4px 20px rgba(11,42,82,.06); }
+.ce-num {
   font-family: 'Fraunces', serif;
-  font-size: 7rem; line-height: 1;
-  color: var(--mist); opacity: .5;
-  position: absolute; top: -.5rem; left: 1.8rem;
+  font-size: 1.6rem; font-weight: 300;
+  color: var(--cyan); line-height: 1;
+  margin-bottom: .5rem;
 }
-.future-card p {
+.ce-format {
+  font-size: .58rem; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: .7rem;
+}
+.ce-hook {
   font-family: 'Fraunces', serif;
-  font-size: 1.3rem; font-style: italic; font-weight: 300;
-  line-height: 1.7; color: var(--dark);
-  position: relative; z-index: 1;
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--ink); margin-bottom: .8rem;
+  line-height: 1.35;
 }
-.future-card p em { color: var(--navy); font-style: normal; font-weight: 500; }
+.ce-hook em { color: var(--blue); font-style: italic; }
+.ce-desc {
+  font-size: .82rem; font-weight: 300;
+  line-height: 1.55; color: var(--body);
+}
+.ce-objection {
+  margin-top: .9rem;
+  padding-top: .8rem;
+  border-top: 1px solid var(--border);
+  font-size: .76rem; font-weight: 300;
+  font-style: italic; color: var(--muted);
+}
+.ce-objection strong { color: var(--mid); font-weight: 600; font-style: normal; }
 
 /* ── PRICING ───────────────────────────────────── */
-.price-fn {
-  text-align: center; font-size: .78rem;
-  font-weight: 300; font-style: italic;
-  color: var(--muted); margin-top: 1.3rem;
+.commercial-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 3rem;
 }
-
-/* ── TIMELINE ──────────────────────────────────── */
-.tl-row {
-  display: grid; grid-template-columns: repeat(5,1fr);
-  gap: 0; margin-top: 4rem; position: relative;
+.commercial-card {
+  padding: 2.5rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
-.tl-row::before {
-  content: ''; position: absolute;
-  top: 28px; left: 10%; right: 10%;
-  height: 1px;
-  background: linear-gradient(to right, var(--border), var(--mist), var(--border));
+.commercial-card.retainer { background: var(--ink); color: #fff; }
+.commercial-card.referral { background: var(--blue); color: #fff; }
+.cc-tag {
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: .8rem;
 }
-.tl-item { text-align: center; padding: 0 1rem; }
-.tl-dot {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--white); border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.1rem;
+.commercial-card.referral .cc-tag { color: var(--mist); }
+.cc-title {
   font-family: 'Fraunces', serif;
-  font-size: 1.1rem; font-weight: 300; color: var(--navy);
-  position: relative; z-index: 1;
-  box-shadow: 0 0 0 6px var(--off);
-  transition: all .3s;
+  font-size: 1.7rem; font-weight: 300;
+  line-height: 1.25; color: #fff;
+  margin-bottom: 1rem;
 }
-.tl-item:hover .tl-dot {
-  background: var(--navy); border-color: var(--navy);
-  color: #fff; box-shadow: 0 4px 20px rgba(13,27,62,.25), 0 0 0 6px var(--off);
+.cc-title em { color: var(--cyan); font-style: italic; }
+.commercial-card.referral .cc-title em { color: var(--mist); font-style: italic; }
+.cc-amount {
+  font-family: 'Fraunces', serif;
+  font-size: 3.5rem; font-weight: 200;
+  color: #fff; line-height: 1;
+  margin: 1.2rem 0 .4rem;
 }
-.tl-wk {
-  font-size: .6rem; font-weight: 700;
+.cc-amount em { color: var(--cyan); font-style: normal; font-size: 1.8rem; }
+.commercial-card.referral .cc-amount em { color: var(--mist); }
+.cc-period {
+  font-size: .65rem; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase;
-  color: var(--mid); margin-bottom: .4rem;
+  color: rgba(255,255,255,.5);
 }
-.tl-title { font-size: .84rem; font-weight: 600; color: var(--ink); margin-bottom: .35rem; line-height: 1.3; }
-.tl-desc { font-size: .74rem; font-weight: 300; line-height: 1.5; color: var(--muted); }
+.cc-desc {
+  font-size: .9rem; font-weight: 300;
+  line-height: 1.75; color: rgba(255,255,255,.62);
+  margin-top: 1.4rem;
+}
+.cc-desc strong { color: #fff; font-weight: 600; }
 
 /* ── CTA ───────────────────────────────────────── */
 .cta {
-  background: var(--navy);
+  background: var(--blue);
   padding: 8rem 3rem;
   text-align: center; position: relative; overflow: hidden;
 }
 .cta::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 80% at 50% 120%, rgba(0,0,0,.3), transparent 60%);
+  background: radial-gradient(ellipse 70% 80% at 50% 120%, rgba(0,0,0,.25), transparent 60%);
 }
-.cta-ring {
-  position: absolute;
-  top: 30%; left: 50%;
-  transform: translate(-50%,-50%);
-  pointer-events: none;
-}
-.cta-ring div {
-  position: absolute; border-radius: 50%;
-  border: 1px solid rgba(96,165,250,.08);
-  transform: translate(-50%,-50%);
-}
-.cta-ring div:nth-child(1) { width: 300px; height: 300px; }
-.cta-ring div:nth-child(2) { width: 500px; height: 500px; }
-.cta-ring div:nth-child(3) { width: 700px; height: 700px; }
-.cta-ring div:nth-child(4) { width: 900px; height: 900px; }
 .cta-ey {
   font-size: .68rem; font-weight: 600;
   letter-spacing: .2em; text-transform: uppercase;
@@ -588,8 +615,8 @@ tr:nth-child(even) td { background: var(--off); }
 .cta-h em { font-style: italic; color: var(--mist); }
 .cta-sub {
   font-size: 1rem; font-weight: 300;
-  color: rgba(255,255,255,.5);
-  max-width: 440px; margin: 0 auto 3.5rem;
+  color: rgba(255,255,255,.55);
+  max-width: 540px; margin: 0 auto 3.5rem;
   line-height: 1.8; position: relative; z-index: 1;
 }
 .cta-people {
@@ -606,7 +633,7 @@ tr:nth-child(even) td { background: var(--off); }
   font-size: 1.3rem; font-weight: 300; color: #fff;
   margin-bottom: .2rem;
 }
-.cp-num { font-size: .88rem; color: rgba(255,255,255,.45); }
+.cp-num { font-size: .88rem; color: rgba(255,255,255,.5); }
 .cta-btns {
   display: flex; justify-content: center;
   gap: 1rem; flex-wrap: wrap;
@@ -618,110 +645,28 @@ tr:nth-child(even) td { background: var(--off); }
   padding: 1rem 2.4rem; border-radius: 8px;
   text-decoration: none; transition: all .25s;
 }
-.cta-btn.p { background: #fff; color: var(--navy); }
+.cta-btn.p { background: #fff; color: var(--blue); }
 .cta-btn.p:hover { background: var(--cream); }
-.cta-btn.o { border: 1.5px solid rgba(255,255,255,.25); color: rgba(255,255,255,.6); }
+.cta-btn.o { border: 1.5px solid rgba(255,255,255,.25); color: rgba(255,255,255,.65); }
 .cta-btn.o:hover { border-color: rgba(255,255,255,.6); color: #fff; }
 .cta-foot {
   margin-top: 4rem; padding-top: 2rem;
   border-top: 1px solid rgba(255,255,255,.12);
-  font-size: .72rem; color: rgba(255,255,255,.25);
+  font-size: .72rem; color: rgba(255,255,255,.3);
   position: relative; z-index: 1;
 }
 
 /* ── RESPONSIVE ────────────────────────────────── */
-
-/* Utility: responsive inline grids */
-.grid-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.grid-3strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
-.pricing-flex { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 1; }
-.pricing-features { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1.5rem; }
-
-/* Table wrapper for horizontal scroll on mobile */
-.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
-.table-wrap table { min-width: 560px; }
-
-/* Bottom-line flex block */
-.bottom-line-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-
-/* Tablet */
 @media(max-width:960px){
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .section { padding: 5rem 1.5rem; }
-  .sig-section { padding: 5rem 1.5rem; }
   .hero { padding: 8rem 1.5rem 4rem; }
-  .signal-rings { display: none; }
-
-  .sit-grid, .future-grid, .build-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .num-trio { grid-template-columns: 1fr; }
-  .tl-row { grid-template-columns: 1fr; gap: 1.5rem; }
-  .tl-row::before { display: none; }
-  .tl-item { text-align: left; display: flex; gap: 1.2rem; align-items: flex-start; padding: 0; }
-  .tl-dot { margin: 0; flex-shrink: 0; }
-
-  .sig-grid { grid-template-columns: 1fr 1fr; }
-  .venue-grid { grid-template-columns: 1fr 1fr; }
-  .tech-banner { grid-column: 1; }
+  .reframe-grid, .net-grid, .commercial-grid { grid-template-columns: 1fr; }
+  .plan-grid, .content-grid, .cf-grid { grid-template-columns: 1fr 1fr; }
+  .letter-box { padding: 2rem; }
+  .canada-focus { padding: 2rem; }
   .cta { padding: 5rem 1.5rem; }
-  .cta-people { gap: 2rem; }
-
-  .grid-3col { grid-template-columns: 1fr; }
-  .grid-2col { grid-template-columns: 1fr; }
-  .grid-3strip { grid-template-columns: 1fr; gap: 0; }
-  .pricing-features { grid-template-columns: 1fr; }
-  .pricing-flex { flex-direction: column; }
-  .pricing-flex > div:last-child { width: 100%; text-align: left; }
-  .bottom-line-flex { flex-direction: column; }
-}
-
-/* Phone */
-@media(max-width:560px){
-  #three-pillars { grid-template-columns: 1fr !important; }
-  nav { padding: .85rem 1.1rem; }
-  .nav-btn { padding: .55rem 1.1rem; font-size: .65rem; }
-  .section { padding: 4rem 1.1rem; }
-  .sig-section { padding: 4rem 1.1rem; }
-  .hero { padding: 7rem 1.1rem 3.5rem; }
-
-  .hero-h { font-size: clamp(2.8rem, 10vw, 4rem); }
-  .hero-sub { font-size: .93rem; margin-top: 1.5rem; }
-  .hero-chips { gap: .5rem; margin-top: 2rem; }
-  .chip { font-size: .72rem; padding: .45rem .85rem; }
-  .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; }
-  .hs-n { font-size: 2.2rem; }
-
-  .sh { font-size: clamp(2rem, 8vw, 2.8rem); }
-  .sit-grid { margin-top: 2.5rem; }
-  .sit-body { font-size: .93rem; }
-
-  .sig-grid { grid-template-columns: 1fr; }
-  .sig-pull { padding: 1.8rem; }
-  .sig-pull p { font-size: 1.1rem; }
-
-  .venue-grid { grid-template-columns: 1fr; }
-
-  .build-grid { margin-top: 2rem; }
-  .bc-title { font-size: 1.3rem; }
-  .bc-body { padding: 1.4rem 1.2rem; }
-  .bc-head { padding: 1.4rem 1.2rem 1.2rem; }
-
-  .num-trio { margin-top: 2.5rem; }
-  .nb-val { font-size: 2.6rem; }
-
-  .tbl-title { font-size: 1.2rem; margin: 2.5rem 0 .8rem; }
-
-  .future-card { padding: 2rem 1.6rem; }
-  .future-card p { font-size: 1.1rem; }
-
-  .cta { padding: 4rem 1.1rem; }
-  .cta-h { font-size: clamp(2.4rem, 9vw, 3.5rem); }
-  .cta-people { flex-direction: column; gap: 1.5rem; align-items: center; }
-  .cta-btns { flex-direction: column; align-items: center; }
-  .cta-btn { width: 100%; text-align: center; }
-
-  .hero-stats > div { min-width: 40%; }
 }
 </style>
 </head>
@@ -729,14 +674,16 @@ tr:nth-child(even) td { background: var(--off); }
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand"><em>Signal</em> × DR&amp;AV</div>
+  <div class="nav-brand">DR&amp;<em>AD</em> → LongFi</div>
   <ul class="nav-links">
-    <li><a href="#situation">Situation</a></li>
-    <li><a href="#signal">The System</a></li>
-    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#reframe">Thesis</a></li>
+    <li><a href="#networks">Networks</a></li>
+    <li><a href="#canada">Canada</a></li>
+    <li><a href="#plan">30-Day Plan</a></li>
+    <li><a href="#content">Content</a></li>
     <li><a href="#pricing">Investment</a></li>
   </ul>
-  <a href="https://buy.stripe.com/9B65kDfBK4UqeHM4YE53O0Q" class="nav-btn">Ready to Start</a>
+  <a href="#cta" class="nav-btn">Start Now</a>
 </nav>
 
 <!-- ════════════════════════════════════════════
@@ -745,545 +692,521 @@ tr:nth-child(even) td { background: var(--off); }
 <section class="hero">
   <div class="hero-bg-circle hbc1"></div>
   <div class="hero-bg-circle hbc2"></div>
-  <div class="hero-bg-circle hbc3"></div>
-
-  <div class="signal-rings">
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-  </div>
 
   <div class="hero-label">
     <div class="hero-label-dot"></div>
-    A Proposal for Jose — DR&amp;AV × Enterprise Acquisition
+    LongFi × DR&amp;AD — Partnership Proposal · For Jose &amp; Andrew
   </div>
 
   <h1 class="hero-h">
-    Portfolio owners.<br>Enterprise deals.<br><em>Every quarter.</em>
+    Networks open<br>the doors.<br><em>Content earns the room.</em>
   </h1>
 
-  <p class="hero-sub">A content strategy and acquisition engine built around your company — designed to reach the decision-makers your technology deserves: portfolio owners, hedge fund managers, multi-venue operators. The people who say yes once and deploy everywhere.</p>
+  <p class="hero-sub">A two-operator partnership built around the way LongFi's ICP actually buys — through trusted relationships, warm introductions, and signals of credibility that arrive before the first conversation does. Two real networks. Two senior operators. Content engineered to pre-educate, build trust, and dismantle the most common objections before they're ever asked on a call.</p>
 
   <div class="hero-chips">
-    <div class="chip"><div class="chip-dot"></div>Enterprise Acquisition Engine</div>
-    <div class="chip"><div class="chip-dot"></div>Top-Down Outreach System</div>
-    <div class="chip"><div class="chip-dot"></div>Content Strategy — Built for B2B</div>
-    <div class="chip"><div class="chip-dot"></div>$14M Valuation · Final Round</div>
+    <div class="chip"><div class="chip-dot"></div>Network-Led Outreach</div>
+    <div class="chip"><div class="chip-dot"></div>Canada · Daniel's Larger Network</div>
+    <div class="chip"><div class="chip-dot"></div>US Fitness + Restaurants · Daniel</div>
+    <div class="chip"><div class="chip-dot"></div>US Finance + Real Estate · Alberto</div>
+    <div class="chip"><div class="chip-dot"></div>12–18 Pieces of Content · Catalyst</div>
   </div>
 
   <div class="hero-stats">
     <div>
-      <div class="hs-n">$14<em>M</em></div>
-      <div class="hs-l">post-money valuation</div>
+      <div class="hs-n">$4K<em>/mo</em></div>
+      <div class="hs-l">retainer · 3-month minimum</div>
     </div>
     <div>
-      <div class="hs-n">$500<em>K</em></div>
-      <div class="hs-l">final funding round</div>
+      <div class="hs-n">30–50<em>%</em></div>
+      <div class="hs-l">referral · net-new only</div>
     </div>
     <div>
-      <div class="hs-n">30<em>%</em></div>
-      <div class="hs-l">partner revenue share</div>
+      <div class="hs-n">40–60</div>
+      <div class="hs-l">warm intros / week</div>
     </div>
     <div>
-      <div class="hs-n">10<em>+</em></div>
-      <div class="hs-l">venues per enterprise deal</div>
+      <div class="hs-n">12–18</div>
+      <div class="hs-l">content pieces / month</div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════
-     SITUATION
+     OPENING LETTER
 ════════════════════════════════════════════ -->
-<section class="section off" id="situation">
-  <div class="eyebrow reveal">01 — The Situation</div>
-  <h2 class="sh reveal">What you've built is solid.<br><em>Here's what's missing.</em></h2>
+<section class="section off" id="letter">
+  <div class="eyebrow reveal">00 — Opening</div>
+  <h2 class="sh reveal">The thesis<br><em>in one paragraph.</em></h2>
 
-  <div class="sit-grid">
-    <div class="sit-body reveal">
-      <p>You've raised $1.5 million, passed a McCarthy Building Companies security audit, deployed at Jazzfest in New Orleans, and built an AT&T partnership for event-scale connectivity. <strong>The technology works. The SOPs are dialed. The product is real.</strong></p>
-      <p>But you're running on 3–4 discovery calls a week — mostly bottom-up, mostly individual MSPs who can't make portfolio-wide decisions. The face-to-face rep in Texas and Louisiana is closing deals. LinkedIn automation is generating meetings. <strong>Neither is building the brand that makes enterprise buyers come to you.</strong></p>
-      <p>You've already made the strategic decision: stop chasing individual venues, start reaching portfolio owners — hedge fund managers, multi-unit operators, hospitality groups, commercial real estate portfolios. The people who say yes once and you deploy across 10, 20, 50 locations.</p>
-      <p>That shift requires a different kind of presence. <strong>That's what we're here to build.</strong></p>
+  <div class="letter-box reveal">
+    <div class="letter-greeting">Jose &amp; Andrew,</div>
+    <div class="letter-body">
+      <p>LongFi's ICP — portfolio managers, franchise operators, multi-unit decision-makers, asset holders — doesn't respond to traditional digital marketing. They respond to <em>warm introductions, trusted networks, and signals of credibility that arrive before the first call does.</em> One face-to-face rep in New Orleans went months without traction, then hit a key contact at a restaurant group — and that single relationship compounded into 30+ locations. <strong>Network access is the unlock.</strong> Digital reach can't replicate it.</p>
+      <p>This proposal puts two operators with two real networks against that exact problem. <strong>Alberto</strong> runs the US finance and real estate arm — asset managers, real estate funds, commercial developers, anchored in Florida with Southeast reach. <strong>Daniel</strong> runs the Canada arm and a US-based operator network — Canada is the much larger network (entertainment, restaurants, hospitality, built through years of in-venue content work that means the operators already know him); the US side covers fitness facilities and restaurants. The networks aren't theoretical. <em>They already exist. We're activating them, not building them.</em></p>
+      <p>Behind the outreach sits a deliberate content layer — <strong>12 to 18 pieces a month, organic, distributed across LinkedIn, YouTube, Instagram, TikTok, and Facebook</strong>, with one long-form YouTube anchor each month. Every piece is engineered to do one of two jobs: pre-educate a prospect on the LongFi category, or dismantle a common sales objection before it's raised. By the time an outreach lands, the prospect has already seen LongFi in their feed. The first call shifts from <em>"what is this?"</em> to <em>"how does this work for us?"</em></p>
+      <p>What follows lays the partnership out in detail: the networks and how they map to your ICP, the Canada-specific opportunity, a 30-day operating plan, the content engine and example pieces, and the commercial structure — a <strong>$4,000/month retainer over a 3-month minimum, though we recognize B2B sales cycles in this category typically run longer</strong> — plus referral economics of 30%–50% of gross on net-new clients we source. Two streams: the retainer pays for the work, the referral rewards the closes.</p>
+    </div>
+    <div class="letter-sig">— Daniel &amp; Alberto · DR&amp;AD</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     THESIS
+════════════════════════════════════════════ -->
+<section class="section white" id="reframe">
+  <div class="eyebrow reveal">01 — The Thesis</div>
+  <h2 class="sh reveal">Why this works<br><em>where digital doesn't.</em></h2>
+
+  <div style="margin-top:2.5rem;max-width:780px;font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);" class="reveal">
+    LongFi's category sits in an awkward place for traditional outbound. The product is technical enough that prospects want to be educated before a conversation. The buyer is senior enough that they don't take cold outreach seriously. And the deal size is large enough that trust matters more than reach. <strong style="color:var(--ink);">Technical, senior, trust-gated — that combination breaks digital-only marketing and rewards network-led partnership.</strong>
+  </div>
+
+  <div class="reframe-grid">
+    <div class="rf-card before reveal">
+      <div class="rf-tag">What doesn't work</div>
+      <div class="rf-title">Pure digital marketing into this ICP.</div>
+      <ul class="rf-list">
+        <li>Portfolio managers don't read cold LinkedIn DMs</li>
+        <li>Franchise operators don't click paid ads at the office</li>
+        <li>Multi-unit decision-makers don't respond to spray-and-pray sequences</li>
+        <li>The buyer pool is too small and too well-defended for reach-based outbound</li>
+        <li>By the time inbound shows up, the deal is usually already decided</li>
+      </ul>
+    </div>
+    <div class="rf-card after reveal">
+      <div class="rf-tag">What does</div>
+      <div class="rf-title">Senior operators with real networks, supported by trust-building content.</div>
+      <ul class="rf-list">
+        <li><strong>A warm introduction from someone the buyer already trusts</strong> beats any cold message ever sent</li>
+        <li><strong>Content that pre-educates</strong> raises the floor of the first conversation</li>
+        <li><strong>Content that handles objections</strong> compresses the sales cycle materially</li>
+        <li>Once a key contact says yes, the portfolio dynamic compounds — one decision, many sites</li>
+        <li><strong>Network access is the product. Content is the catalyst.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="proof-box reveal">
+    <div class="proof-tag">The pattern that proves it</div>
+    <div class="proof-quote">One rep. Months of groundwork. One key contact at a restaurant group. <em>Thirty-plus locations from a single relationship.</em> That isn't anomaly — that's the shape of how LongFi's market actually opens.</div>
+  </div>
+
+  <div style="margin-top:1.5rem;font-size:.92rem;font-weight:300;line-height:1.75;color:var(--body);max-width:780px;" class="reveal">
+    The mistake most agencies make is treating that pattern as a story to tell. We're treating it as a <strong style="color:var(--ink);">system to replicate.</strong> Two operators, two networks, two regions — running the same play simultaneously, with content engineered to make every conversation start ten steps further along than it otherwise would.
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     NETWORKS
+════════════════════════════════════════════ -->
+<section class="section off" id="networks">
+  <div class="eyebrow reveal">02 — The Networks</div>
+  <h2 class="sh reveal">Two operators.<br><em>Two networks. One pipeline.</em></h2>
+
+  <div style="margin-top:2.5rem;max-width:780px;font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);" class="reveal">
+    The networks are mapped to industries and regions where LongFi's ICP actually lives. Multi-unit decision-makers — franchise operators, asset managers, portfolio owners — accessed through the kind of relationships that take years to build and one conversation to activate.
+  </div>
+
+  <div class="net-grid">
+
+    <!-- ALBERTO -->
+    <div class="net-card usa reveal">
+      <div class="net-head">
+        <span class="net-flag">🇺🇸 United States · Florida-Anchored</span>
+        <div class="net-operator">Alberto <em>· US Network</em></div>
+        <div class="net-role">Finance · Real Estate · Commercial Development</div>
+      </div>
+      <div class="net-body">
+        <div class="net-section-label">Industries</div>
+        <ul class="net-list">
+          <li><strong>Asset managers</strong> — multi-property portfolios, retail and mixed-use</li>
+          <li><strong>Real estate funds</strong> — private equity real estate, opportunity zone funds</li>
+          <li><strong>Commercial developers</strong> — multi-unit retail, office, hospitality projects</li>
+          <li><strong>US finance</strong> — wealth managers, family offices with property holdings</li>
+        </ul>
+
+        <div class="net-section-label">Regions</div>
+        <ul class="net-list">
+          <li><strong>Florida-anchored</strong> — Miami, Pompano Beach, Fort Lauderdale, Orlando</li>
+          <li><strong>Southeast US reach</strong> — Atlanta, Tampa, Charleston, Nashville network adjacency</li>
+        </ul>
+
+        <div class="net-section-label">Relationship Type</div>
+        <ul class="net-list">
+          <li><strong>Direct relationships</strong> — first-degree connections, multi-year</li>
+          <li><strong>Warm intros</strong> — second-degree access through trusted operators</li>
+          <li><strong>Active dialogue</strong> — people he can text, not just email</li>
+        </ul>
+
+        <div class="net-section-label">Why This Maps to LongFi's ICP</div>
+        <ul class="net-list">
+          <li>Portfolio owners decide <em>once</em> and deploy across multiple sites</li>
+          <li>Real estate funds treat connectivity as a tenant amenity — high willingness to pay</li>
+          <li>Florida concentration = high venue density for in-person follow-up</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="cards reveal">
-      <div class="card-sm good">
-        <div class="csm-ico">🏗️</div>
-        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>McCarthy Building Companies security audit — passed.</strong> Enterprise compliance is done. The hardest door to open is already open. You can pursue Fortune 500 accounts with proof.</div></div>
+    <!-- DANIEL -->
+    <div class="net-card canada reveal">
+      <div class="net-head">
+        <span class="net-flag">🇨🇦 Canada (Primary) · 🇺🇸 US (Secondary)</span>
+        <div class="net-operator">Daniel <em>· Canada + US Network</em></div>
+        <div class="net-role">Canada · Entertainment, Restaurants, Hospitality &nbsp;·&nbsp; US · Fitness Facilities, Restaurants</div>
       </div>
-      <div class="card-sm good">
-        <div class="csm-ico">📡</div>
-        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>AT&T partnership + Jazzfest deployment.</strong> Event connectivity is a proven new vertical. The FIFA World Cup is a real, time-bound marketing moment nobody else in your space is using.</div></div>
+      <div class="net-body">
+        <div class="net-section-label">Canada — The Larger Network</div>
+        <ul class="net-list">
+          <li><strong>Entertainment venues</strong> — nightlife groups, event venues, concert venues</li>
+          <li><strong>Restaurant groups</strong> — multi-location operators, franchise holders</li>
+          <li><strong>Hospitality</strong> — boutique hotel groups, lounges, members clubs</li>
+          <li><strong>Hospitality-adjacent retail</strong> — multi-unit cafes, coffee chains</li>
+        </ul>
+
+        <div class="net-section-label">US — Operators &amp; Decision-Makers</div>
+        <ul class="net-list">
+          <li><strong>Fitness facilities</strong> — multi-location gym operators, boutique studio groups, fitness franchise holders</li>
+          <li><strong>Restaurants</strong> — multi-unit operators, franchise owners, group GMs</li>
+          <li>Built through content collaboration and operator-level relationships</li>
+        </ul>
+
+        <div class="net-section-label">Regions</div>
+        <ul class="net-list">
+          <li><strong>Canada — Montreal &amp; Toronto-anchored</strong>, dense venue clusters, Vancouver + Calgary reach</li>
+          <li><strong>US — operator-led, not geography-led</strong> — fitness + restaurant decision-makers across multiple markets</li>
+        </ul>
+
+        <div class="net-section-label">Relationship Type</div>
+        <ul class="net-list">
+          <li><strong>Built through years of on-the-ground content work</strong> — operators know him by name</li>
+          <li><strong>Trust earned</strong> — he's filmed in their venues, not pitched into them</li>
+          <li><strong>Bilingual reach</strong> — French and English, critical for Quebec market</li>
+        </ul>
+
+        <div class="net-section-label">Why This Maps to LongFi's ICP</div>
+        <ul class="net-list">
+          <li>Restaurant groups (both sides of the border) = the exact French Quarter / NOLA pattern</li>
+          <li>Entertainment venues = the exact Silo nightclub pattern (connectivity as core need)</li>
+          <li><strong>Fitness facilities</strong> — high-traffic venues, member experience tied directly to connectivity</li>
+          <li><strong>Canada is a wide-open market for LongFi</strong> — no carrier-offload competitor playing this lane yet</li>
+        </ul>
       </div>
-      <div class="card-sm good">
-        <div class="csm-ico">💼</div>
-        <div><div class="csm-label">Working for you</div><div class="csm-text"><strong>30% revenue share model.</strong> A referral incentive this strong turns every partner introduction into a recurring stream — the deal structure is already built to scale through relationships.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CANADA FOCUS
+════════════════════════════════════════════ -->
+<section class="section white" id="canada">
+  <div class="eyebrow reveal">03 — Canada Focus</div>
+  <h2 class="sh reveal">Why Canada<br><em>changes the math.</em></h2>
+
+  <div class="canada-focus reveal">
+    <span class="cf-flag">🇨🇦 The Canadian Opportunity</span>
+    <div class="cf-title">A new market.<br>A network already <em>inside.</em></div>
+    <div class="cf-body">
+      <p>You asked specifically for a Canadian market focus. Here's why we think it deserves its own arm of the strategy, not a side note.</p>
+      <p><strong>Canada is greenfield for LongFi.</strong> The carrier-offload model has near-zero competitive penetration north of the border, and the Canadian telecom market is famously over-priced and under-served. Restaurant groups, entertainment venues, and hospitality operators in Montreal, Toronto, and Vancouver are paying premium rates for connectivity that doesn't meet their needs — exactly the wedge LongFi solves in the US.</p>
+      <p><strong>The difference: Daniel is already inside.</strong> He's spent years filming in the venues that map directly to your ICP — restaurant groups, nightlife, entertainment. Those owners know him by name. That's not "we'll build a network" — that's "the network already exists, we're activating it."</p>
+    </div>
+
+    <div class="cf-grid">
+      <div class="cf-tile">
+        <div class="cf-tile-tag">Market</div>
+        <div class="cf-tile-title">Greenfield</div>
+        <div class="cf-tile-desc">No US-style carrier-offload competitors operating at scale in Canada. First-mover advantage.</div>
       </div>
-      <div class="card-sm gap">
-        <div class="csm-ico">📹</div>
-        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>No content strategy whatsoever.</strong> Portfolio-level decision-makers don't respond to cold outreach. They need to already know your name before the call. Right now, they don't.</div></div>
+      <div class="cf-tile">
+        <div class="cf-tile-tag">Network</div>
+        <div class="cf-tile-title">Already In</div>
+        <div class="cf-tile-desc">Daniel's relationships are pre-built. Restaurant + entertainment venue operators know him by name.</div>
       </div>
-      <div class="card-sm gap">
-        <div class="csm-ico">🎯</div>
-        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>Bottom-up sales still dominant.</strong> LinkedIn automation and Valley work — but they reach the wrong level. The top-down shift is strategic; it needs content that speaks enterprise-first.</div></div>
+      <div class="cf-tile">
+        <div class="cf-tile-tag">ICP Fit</div>
+        <div class="cf-tile-title">Direct Match</div>
+        <div class="cf-tile-desc">Restaurant groups + entertainment venues = the exact NOLA + Silo patterns, scaled to Canada.</div>
       </div>
-      <div class="card-sm gap">
-        <div class="csm-ico">⚡</div>
-        <div><div class="csm-label">Gap to close</div><div class="csm-text"><strong>FIFA World Cup window is closing.</strong> This is a defined, time-sensitive moment to own the connectivity narrative for high-traffic venues. Miss it and the next one is 4 years away.</div></div>
+      <div class="cf-tile">
+        <div class="cf-tile-tag">Language</div>
+        <div class="cf-tile-title">Bilingual</div>
+        <div class="cf-tile-desc">English + French. Quebec market access without translation friction or cultural misfire.</div>
+      </div>
+      <div class="cf-tile">
+        <div class="cf-tile-tag">Density</div>
+        <div class="cf-tile-title">Cluster Effects</div>
+        <div class="cf-tile-desc">Montreal + Toronto venue density makes referrals self-replicating once the first 2-3 close.</div>
+      </div>
+      <div class="cf-tile">
+        <div class="cf-tile-tag">Pain Point</div>
+        <div class="cf-tile-title">Expensive Telecom</div>
+        <div class="cf-tile-desc">Canadian carriers are notoriously over-priced. Cost-of-connectivity is a daily complaint already.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════
-     THE SIGNAL
+     30-DAY PLAN
 ════════════════════════════════════════════ -->
-<section class="sig-section" id="signal">
-  <div class="eyebrow reveal">02 — The System</div>
-  <h2 class="sh reveal" style="font-size:clamp(3rem,5.5vw,5.5rem);">The <em>Signal</em> System.</h2>
-  <p class="sig-sub reveal">Enterprise buyers don't respond to cold calls. They respond to signal — authority content, visible proof, and introductions from people they already trust. This is how you become the obvious choice before they even take the meeting.</p>
+<section class="section off" id="plan">
+  <div class="eyebrow reveal">04 — Sample 1-Month Outreach Plan</div>
+  <h2 class="sh reveal">Month one,<br><em>week by week.</em></h2>
 
-  <div class="sig-grid reveal">
-    <div class="sig-cell">
-      <div class="sig-num">01</div>
-      <div class="sig-title">Authority Content Goes Live</div>
-      <div class="sig-desc">Case studies, deployment stories, and FIFA World Cup connectivity content hit LinkedIn and YouTube. Portfolio owners and hospitality executives see your name before they ever need you.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">02</div>
-      <div class="sig-title">Enterprise Buyers Notice</div>
-      <div class="sig-desc">A hedge fund manager sees the McCarthy case study. A hotel group CEO watches your Jazzfest deployment video. The content does the first meeting's work before you pick up the phone.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">03</div>
-      <div class="sig-title">Outreach Converts Warmer</div>
-      <div class="sig-desc">When Valley and your outside reps follow up, the prospect already has context. Open rates climb. Show rates climb. "I've seen your content" becomes the opening line, not dead air.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">04</div>
-      <div class="sig-title">Partners Refer In</div>
-      <div class="sig-desc">Your 30% revenue share model activates. Hospitality contacts, commercial real estate brokers, and industry connectors start making introductions — because your brand is now something worth introducing.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">05</div>
-      <div class="sig-title">Portfolio Deals Close</div>
-      <div class="sig-desc">One hotel group becomes 12 properties. One car wash operator becomes a regional chain. One clinic system becomes a 40-location deployment. The enterprise decision unlocks at-scale.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">06</div>
-      <div class="sig-title">Compliance Story Spreads</div>
-      <div class="sig-desc">The McCarthy audit becomes a content pillar — a public proof of enterprise-readiness that other enterprise buyers use to justify moving forward. One win, told well, opens ten doors.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">07</div>
-      <div class="sig-title">FIFA Moment Captured</div>
-      <div class="sig-desc">A focused World Cup content sprint targets hotel, stadium, and hospitality operators facing connectivity problems. Time-bound, specific, urgent — and you're the only one telling this story.</div>
-    </div>
-    <div class="sig-cell">
-      <div class="sig-num">08</div>
-      <div class="sig-title">Signal Compounds</div>
-      <div class="sig-desc">More visible proof = stronger referral conversations = warmer outreach = shorter sales cycles = more deployments = more proof. It compounds every month. That's self-sufficiency.</div>
-    </div>
+  <div style="margin-top:2.5rem;max-width:780px;font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);" class="reveal">
+    This is what month one actually looks like. Two operators running parallel tracks (Alberto in US finance/real estate, Daniel in Canada entertainment/restaurants), with content shipping in parallel to warm the room. Volume is aggressive on purpose — once a key contact is hit, the pace lets the portfolio dynamic compound.
   </div>
 
-  <div class="sig-pull reveal">
-    <p>"Three systems running at the same time. Content makes them <em>know you.</em> LinkedIn finds them and <em>reaches out.</em> The lead agent captures every response and <em>books the call.</em> One pipeline — always filling."</p>
-  </div>
-</section>
+  <div class="plan-grid">
 
-<!-- ════════════════════════════════════════════
-     DELIVERABLES
-════════════════════════════════════════════ -->
-<section class="section white" id="deliverables">
-  <div class="eyebrow reveal">03 — Deliverables</div>
-  <h2 class="sh reveal">Three systems.<br><em>One retainer.</em></h2>
-
-  <div class="build-grid reveal" style="margin-top:3.5rem;">
-
-    <!-- ORGANIC AI CARD -->
-    <div class="build-card">
-      <div class="bc-head">
-        <div class="bc-tag">01 — Organic AI</div>
-        <div class="bc-title">Content created in Longfi's voice.</div>
-      </div>
-      <div class="bc-body">
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>12–18 pieces of content/videos per month</strong> — deployment stories, connectivity problem/solution pieces, and McCarthy and FIFA-focused content. We shoot. AI handles the rest.</div></div>
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>McCarthy case study</strong> — produced in month one. Then month after month, new case studies built from every deployment, audit, and enterprise win. Each one feeds the next conversation.</div></div>
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>FIFA World Cup sprint</strong> — time-sensitive content targeting hotel and hospitality operators in month one. Then ongoing content around match results, venue performance, and connectivity moments throughout the tournament. The story doesn't stop when the whistle blows.</div></div>
-      </div>
+    <div class="plan-week">
+      <div class="pw-num">01</div>
+      <div class="pw-label">Week 1 · Setup</div>
+      <div class="pw-title">Lists, intros, content plan.</div>
+      <ul class="pw-list">
+        <li>Build target lists from both networks · ~150 priority contacts</li>
+        <li>Map existing LongFi pipeline · exclude any overlap</li>
+        <li>Lock content calendar for month · 12–18 pieces scheduled</li>
+        <li>Alberto: first 10 warm intros queued (US finance, FL real estate)</li>
+        <li>Daniel: first 10 warm intros queued (Canada restaurants, venues)</li>
+        <li>First content shoot complete</li>
+      </ul>
     </div>
 
-    <!-- AI AGENTS CARD -->
-    <div class="build-card dark">
-      <div class="bc-head">
-        <div class="bc-tag">02 + 03 — LinkedIn AI Agent + Lead AI Agent</div>
-        <div class="bc-title">Outreach agent. Inbound agent. Both running.</div>
-      </div>
-      <div class="bc-body">
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>LinkedIn AI Agent — runs 24/7.</strong> Continuously prospects portfolio-level decision-makers — hedge fund owners, multi-unit operators, commercial real estate groups. Sends AI-personalized connection requests and messages that reference your content around the clock. Replies route straight to Jose.</div></div>
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Lead AI Agent — email outreach, qualified inbound, booked.</strong> Runs AI email outreach to target accounts, qualifies every inbound lead instantly, and books discovery calls automatically. Custom-trained on your services and ICP so every interaction sounds like your team.</div></div>
-        <div class="bi"><div class="bi-dot">✓</div><div class="bi-t"><strong>Pipeline dashboard + monthly report</strong> — every prospect, touchpoint, meetings booked, and deal stage in one view. The data your co-founders need to validate the initiative every 30 days.</div></div>
-      </div>
+    <div class="plan-week">
+      <div class="pw-num">02</div>
+      <div class="pw-label">Week 2 · Activate</div>
+      <div class="pw-title">First wave goes out.</div>
+      <ul class="pw-list">
+        <li><strong>40–60 warm intros sent</strong> (combined across both networks)</li>
+        <li><strong>100–150 cold/qualified outreach</strong> messages (LinkedIn + email)</li>
+        <li>First 4 content pieces live across platforms</li>
+        <li>First discovery calls booked · pipeline starts populating</li>
+        <li>Track reply rates · adjust messaging by Wed</li>
+        <li>First weekly sync with LongFi</li>
+      </ul>
     </div>
 
-    <div class="tech-banner">
-      <div class="tb-icon">🔄</div>
-      <div class="tb-text"><strong>All three run at the same time, feeding each other.</strong> The organic AI posts content that warms the market — so when the LinkedIn agent reaches out 24/7, prospects already recognize the name. The lead agent captures everything that comes back in — inbound from content, replies from LinkedIn, email responses — qualifies them, and books the call. One lead pipeline. Three systems filling it simultaneously.</div>
+    <div class="plan-week">
+      <div class="pw-num">03</div>
+      <div class="pw-label">Week 3 · Compound</div>
+      <div class="pw-title">First conversations turn into intros.</div>
+      <ul class="pw-list">
+        <li>40–60 warm intros · second wave</li>
+        <li>100–150 cold/qualified outreach · ongoing</li>
+        <li>4 more content pieces live (8 total)</li>
+        <li><strong>First "introduce me to your network" asks</strong> from week 2 calls</li>
+        <li>Daniel: first Canadian venue group conversation</li>
+        <li>Alberto: first FL real estate portfolio conversation</li>
+      </ul>
     </div>
-  </div>
-</section>
 
-<!-- ════════════════════════════════════════════
-     NUMBERS
-════════════════════════════════════════════ -->
-<section class="section off" id="numbers">
-  <div class="eyebrow reveal">04 — The Numbers</div>
-  <h2 class="sh reveal">One portfolio deal.<br><em>Changes everything.</em></h2>
+    <div class="plan-week hot">
+      <div class="pw-num">04</div>
+      <div class="pw-label">Week 4 · Handoffs</div>
+      <div class="pw-title">Warm leads → LongFi.</div>
+      <ul class="pw-list">
+        <li>40–60 warm intros · third wave</li>
+        <li>100–150 cold/qualified outreach · ongoing</li>
+        <li>4–6 more content pieces live (12–14 total for month)</li>
+        <li><strong>First qualified warm handoffs to Jose</strong> with full context</li>
+        <li>Month 1 report delivered: leads sourced, conversations had, pipeline status</li>
+        <li>Plan month 2 based on what's working</li>
+      </ul>
+    </div>
 
-  <div class="num-trio reveal">
-    <div class="num-box">
-      <div class="nb-val">3–4<em>/wk</em></div>
-      <div class="nb-lab">Discovery calls today</div>
-      <div class="nb-sub">Mostly bottom-up, mostly individual venues</div>
-    </div>
-    <div class="num-box accent">
-      <div class="nb-val">$3,000<em>/mo</em></div>
-      <div class="nb-lab">One retainer. Three systems.</div>
-      <div class="nb-sub">Organic AI + LinkedIn Agent + Lead AI Agent</div>
-    </div>
-    <div class="num-box">
-      <div class="nb-val">10<em>+</em></div>
-      <div class="nb-lab">Venues per enterprise deal</div>
-      <div class="nb-sub">One portfolio owner, one conversation, 10x the deployment</div>
-    </div>
   </div>
 
-  <div class="tbl-title reveal">What shifts when you go top-down</div>
-  <div class="table-wrap reveal">
-  <table>
+  <div class="tbl-title reveal">Month 1 Volume Targets</div>
+  <table class="reveal">
     <thead>
-      <tr><th>Approach</th><th>Decision-Maker</th><th>Deployment Scale</th><th>Sales Cycle</th><th>Revenue Outcome</th></tr>
+      <tr><th>Activity</th><th>Per Week</th><th>Month 1 Total</th><th>Owner</th></tr>
     </thead>
     <tbody>
-      <tr><td>Bottom-up (today)</td><td>Individual venue manager</td><td>1 location</td><td>4–8 weeks</td><td class="to">1× venue contract</td></tr>
-      <tr><td>Top-down (target)</td><td>Portfolio owner / hedge fund</td><td>10–50 locations</td><td>8–16 weeks</td><td class="tg">10–50× venue contracts</td></tr>
-      <tr><td>Event vertical</td><td>Event producer / AT&T partner</td><td>1 event = 50K+ attendees</td><td>2–4 weeks</td><td class="tg">Premium day-rate + exposure</td></tr>
-      <tr><td>Partner referral</td><td>Warm intro from hospitality contact</td><td>Portfolio-wide</td><td>4–8 weeks (warm)</td><td class="tg">30% rev share unlocked for partner</td></tr>
-      <tr class="total-row"><td>Signal System goal</td><td>Portfolio-level, inbound-warm</td><td>Multi-location deployments</td><td>Compressed by content</td><td class="tg">Self-sufficiency by end of round</td></tr>
+      <tr><td>Warm intros from personal networks</td><td class="tg">40–60</td><td class="tg">160–240</td><td>Alberto + Daniel</td></tr>
+      <tr><td>Cold / qualified outreach (LinkedIn + email)</td><td class="tg">100–150</td><td class="tg">400–600</td><td>Combined</td></tr>
+      <tr><td>Content pieces published (organic only)</td><td class="tg">3–4</td><td class="tg">12–18</td><td>Daniel produces, both promote</td></tr>
+      <tr><td>Discovery calls booked</td><td class="tg">5–10 (est.)</td><td class="tg">20–40 (est.)</td><td>Handed to LongFi</td></tr>
+      <tr class="total-row"><td>Net-new prospects engaged</td><td class="tg">~150–200/wk</td><td class="tg">~600–800/mo</td><td>Combined effort</td></tr>
     </tbody>
   </table>
-  </div>
-
-  <div class="tbl-title reveal">The enterprise deal math</div>
-  <div class="venue-grid reveal">
-    <div class="venue-box">
-      <div class="vb-scenario">Today (estimated)</div>
-      <div class="vb-n">4–6</div>
-      <div class="vb-sub">single-venue deals / quarter</div>
-      <div class="vb-rev">Conservative ARR · <strong>Fragmented</strong></div>
-    </div>
-    <div class="venue-box">
-      <div class="vb-scenario">1 portfolio deal (10 venues)</div>
-      <div class="vb-n">10×</div>
-      <div class="vb-sub">revenue of one venue deal</div>
-      <div class="vb-rev">Same sales effort · <strong>10× output</strong></div>
-    </div>
-    <div class="venue-box">
-      <div class="vb-scenario">2 portfolio deals / quarter</div>
-      <div class="vb-n">20+</div>
-      <div class="vb-sub">locations activated</div>
-      <div class="vb-rev">Referral engine live · <strong>Compounding</strong></div>
-    </div>
-    <div class="venue-box hot">
-      <div class="vb-scenario">Signal System running</div>
-      <div class="vb-n">Self-</div>
-      <div class="vb-sub">sufficient</div>
-      <div class="vb-rev">Final round deployed · <strong>No next raise needed</strong></div>
-    </div>
-  </div>
-  <p class="venue-fn reveal">Estimates based on your stated goal of reaching self-sufficiency through this $500K round. Portfolio deal scale assumptions are conservative — single hospitality groups regularly manage 15–30 properties.</p>
+  <p style="font-size:.8rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:1rem;" class="reveal">Volume targets are aggressive on purpose. Discovery call estimates are conservative — based on warm-intro-led pipelines, not cold digital. Actual conversion depends heavily on which networks open first.</p>
 </section>
 
 <!-- ════════════════════════════════════════════
-     ROI
+     CONTENT EXAMPLES
 ════════════════════════════════════════════ -->
-<section class="section white" id="roi">
-  <div class="eyebrow reveal">05 — Return on Investment</div>
-  <h2 class="sh reveal">The math is<br><em>straightforward.</em></h2>
+<section class="section white" id="content">
+  <div class="eyebrow reveal">05 — Content Examples That Catalyze Conversations</div>
+  <h2 class="sh reveal">Content that warms the room<br><em>before the conversation.</em></h2>
 
-  <div style="margin-top:4rem;">
+  <div style="margin-top:2.5rem;max-width:780px;font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);" class="reveal">
+    Every piece of content is built to do one of two jobs: <strong style="color:var(--ink);">pre-educate prospects on LongFi's category</strong>, or <strong style="color:var(--ink);">handle a common objection before it's even raised on a call.</strong> 12–18 pieces per month, all video, all organic (no paid ads), distributed across LinkedIn, YouTube Shorts, Instagram, TikTok, and Facebook, with a long-form YouTube anchor each month.
+  </div>
 
-    <div class="grid-3col reveal">
-      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem;">Monthly Retainer</div>
-        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:var(--navy);line-height:1;">$3,000<span style="font-size:1.6rem;color:var(--mid);">/mo</span></div>
-        <div style="font-size:.82rem;font-weight:300;color:var(--body);margin-top:.5rem;">Content + Lead AI Agent + LinkedIn AI Agent. All three running. One number.</div>
-      </div>
-      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--navy);border:1.5px solid transparent;">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:.6rem;">Deals Needed to Break Even</div>
-        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:#fff;line-height:1;">1<span style="font-size:1.6rem;color:var(--mist);"> deal</span></div>
-        <div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.5rem;">One portfolio deal covers the full year at $3,000/mo — with room to spare</div>
-      </div>
-      <div style="padding:2.5rem 2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem;">Our Rev Share — Every Client</div>
-        <div style="font-family:'Fraunces',serif;font-size:3.2rem;font-weight:200;color:var(--navy);line-height:1;">30<span style="font-size:1.6rem;color:var(--mid);">%</span></div>
-        <div style="font-size:.82rem;font-weight:300;color:var(--body);margin-top:.5rem;">Every client we bring — through content, cold email, or direct intro — earns us 30% for the life of that contract</div>
-      </div>
+  <div class="content-grid">
+
+    <div class="ce-card reveal">
+      <div class="ce-num">01</div>
+      <div class="ce-format">Short-form · LinkedIn</div>
+      <div class="ce-hook">"You're paying $X/month for connectivity that <em>doesn't even work</em> during your peak hours."</div>
+      <div class="ce-desc">Jose breaks down a real venue's pre-LongFi situation — the carrier bill, the dead zones, the actual customer impact. 60 seconds.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "We already pay for connectivity, why do we need this?"</div>
     </div>
 
-    <div style="margin-top:3rem;" class="reveal">
-      <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:1rem;">Where the value comes from</div>
-      <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Value Source</th><th>How It Works</th><th>Conservative Monthly</th><th>Annual</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Warmer outreach conversion lift</td><td>Content familiarity increases meeting show rate by est. 30–40%</td><td class="tg">+1–2 extra calls/week</td><td class="tg">50–100 more enterprise conversations</td></tr>
-          <tr><td>Portfolio deal pipeline</td><td>1 extra portfolio deal/quarter from content-warmed prospects</td><td class="tg">Varies by contract</td><td class="tg">10–50 new venue deployments</td></tr>
-          <tr><td>FIFA / event vertical</td><td>Time-sensitive campaign targeting hotel + stadium operators</td><td class="tg">$10,000–$30,000</td><td class="tg">$120,000–$360,000</td></tr>
-          <tr><td>Partner referrals activated</td><td>30% rev share attracts hospitality + commercial RE intros</td><td class="tg">2–4 warm introductions</td><td class="tg">24–48 qualified referrals</td></tr>
-          <tr><td>Post-call follow-up recovery</td><td>Automated sequences recover prospects who went cold after discovery</td><td class="tg">$15,000</td><td class="tg">$180,000</td></tr>
-          <tr class="total-row"><td>Conservative annual upside</td><td>Based on 1 portfolio deal/quarter + event vertical + referrals</td><td class="tg">Significant</td><td class="to">Path to self-sufficiency</td></tr>
-        </tbody>
-      </table>
-      </div>
+    <div class="ce-card reveal">
+      <div class="ce-num">02</div>
+      <div class="ce-format">Long-form · YouTube</div>
+      <div class="ce-hook">"From one venue to 30 locations: <em>how connectivity quietly became a revenue line.</em>"</div>
+      <div class="ce-desc">The NOLA story told properly. Behind-the-scenes of how a single restaurant group became a 30+ site deployment. 8–12 minutes.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "Will this actually scale across our portfolio?"</div>
     </div>
 
-    <div class="grid-2col reveal" style="margin-top:1.5rem;">
-      <div style="padding:2rem 2.2rem;border-radius:12px;background:var(--gold-bg);border:1.5px solid var(--gold-bd);">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Your Annual Investment</div>
-        <div style="display:flex;flex-direction:column;gap:.6rem;">
-          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--gold-bd);">
-            <span>Monthly retainer × 12</span><span style="font-weight:600;color:var(--ink);">$3,000 × 12</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:1rem;font-weight:700;color:var(--gold);margin-top:.3rem;">
-            <span>Total Year One</span><span>$36,000</span>
-          </div>
-          <div style="font-size:.75rem;color:var(--muted);margin-top:.2rem;">No setup fee. No contracts. Cancel anytime.</div>
-        </div>
-      </div>
-
-      <div style="padding:2rem 2.2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem;">What One Portfolio Win Looks Like</div>
-        <div style="display:flex;flex-direction:column;gap:.6rem;">
-          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
-            <span>10-venue deployment contract</span><span style="font-weight:600;color:var(--ink);">Your contract terms</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
-            <span>Event vertical (2 events / yr)</span><span style="font-weight:600;color:var(--ink);">$60K–$120K</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:.88rem;font-weight:300;color:var(--body);padding-bottom:.6rem;border-bottom:1px solid var(--mist);">
-            <span>Partner referrals (est. 4 deals)</span><span style="font-weight:600;color:var(--ink);">Your contract × 4</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:1rem;font-weight:700;color:var(--navy);margin-top:.3rem;">
-            <span>vs. your $36K investment</span><span>Far above break-even</span>
-          </div>
-        </div>
-      </div>
+    <div class="ce-card reveal">
+      <div class="ce-num">03</div>
+      <div class="ce-format">Short-form · Instagram</div>
+      <div class="ce-hook">"What I tell asset managers in <em>the first 60 seconds</em> of every call."</div>
+      <div class="ce-desc">Jose direct-to-camera, the actual elevator pitch he uses with portfolio owners. Stripped down. Real.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "What does this even do for us?"</div>
     </div>
 
-    <div class="bottom-line-flex reveal" style="margin-top:1.5rem;padding:2rem 2.2rem;border-radius:12px;background:var(--navy);">
-      <div>
-        <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.4rem;">The bottom line</div>
-        <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:#fff;line-height:1.3;">You invest <em style="color:var(--mist);font-style:normal;">$36,000</em> for the year. No setup. No contracts. One portfolio deal covers it. Every client we bring — through content, LinkedIn, or direct intro — earns us <em style="color:var(--mist);font-style:normal;">30%</em> for the life of that contract.</div>
-      </div>
-      <div style="text-align:center;flex-shrink:0;">
-        <div style="font-family:'Fraunces',serif;font-size:4rem;font-weight:200;color:#fff;line-height:1;">60<span style="font-size:2rem;color:var(--mist);">days</span></div>
-        <div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);">To proof of concept</div>
-      </div>
+    <div class="ce-card reveal">
+      <div class="ce-num">04</div>
+      <div class="ce-format">Short-form · TikTok</div>
+      <div class="ce-hook">"The carrier doesn't want you to know <em>this is possible.</em>"</div>
+      <div class="ce-desc">Pattern-interrupt hook explaining how carrier offload works in plain language. Shareable, comment-driving.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "Is this legal / approved / above-board?"</div>
+    </div>
+
+    <div class="ce-card reveal">
+      <div class="ce-num">05</div>
+      <div class="ce-format">Short-form · LinkedIn</div>
+      <div class="ce-hook">"How long does deployment actually take? <em>I'll show you.</em>"</div>
+      <div class="ce-desc">Time-lapse-style content of an actual deployment from start to live. Transparency = trust.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "How disruptive is this for our operations?"</div>
+    </div>
+
+    <div class="ce-card reveal">
+      <div class="ce-num">06</div>
+      <div class="ce-format">Short-form · YouTube Shorts</div>
+      <div class="ce-hook">"Three numbers every restaurant owner should know <em>about their connectivity bill.</em>"</div>
+      <div class="ce-desc">Vertical-specific. Restaurant-owner pain points laid out with real numbers. Made to be screenshot and shared.</div>
+      <div class="ce-objection"><strong>Handles:</strong> "Does this actually save us money?"</div>
     </div>
 
   </div>
-</section>
 
-<!-- ════════════════════════════════════════════
-     FUTURE
-════════════════════════════════════════════ -->
-<section class="section pale" id="future">
-  <div class="future-grid">
-    <div class="reveal">
-      <div class="eyebrow">06 — The Bigger Picture</div>
-      <h2 class="sh" style="margin-bottom:1.8rem;">A business that closes<br><em>from the top down.</em></h2>
-      <div class="future-body">
-        <p>You've said it plainly: this is the final round. The goal is self-sufficiency — not more fundraising, not more runway, just a business that grows on its own from the revenue it generates.</p>
-        <p>Enterprise deals are how you get there. Not 4–6 individual venues a quarter — one portfolio owner who deploys across 20 properties, one hospitality group who becomes a 3-year contract. <strong>That's the math that works.</strong></p>
-        <p>Building the Signal System is how you make those conversations happen. The content makes you visible. The outreach makes you reachable. The case studies make you credible. And <strong>the FIFA window makes it urgent for buyers to move now.</strong></p>
-        <p>We're not just a vendor here. Jose — Alberto has already said it. We want to be in the sales cycle with you. That's what makes this different from hiring an agency.</p>
-      </div>
-    </div>
-    <div class="future-card reveal">
-      <p>"The goal is portfolio owners — people who say yes once and you're in 20 locations. The content we build makes your brand something worth introducing. And the <em>30% revenue share</em> means we're motivated to make those introductions every single month."</p>
-    </div>
+  <div style="margin-top:2.5rem;padding:1.8rem 2.2rem;border-radius:12px;background:var(--pale);border:1.5px solid var(--mist);" class="reveal">
+    <div style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem;">How content compounds the outreach</div>
+    <div style="font-size:.95rem;font-weight:300;line-height:1.75;color:var(--body);">By the time Alberto or Daniel reaches out, the prospect has already seen LongFi in their feed. The intro isn't cold — it's <strong style="color:var(--ink);">"oh, I've seen your stuff."</strong> That single shift moves the first conversation from <em>"what is this?"</em> to <em>"how does this work for us specifically?"</em> Same outreach, dramatically higher conversion. <strong style="color:var(--ink);">Content's job is to make the conversation start ten steps further along.</strong></div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════
      PRICING
 ════════════════════════════════════════════ -->
-<section class="section white" id="pricing">
-  <div class="eyebrow reveal">07 — Investment</div>
-  <h2 class="sh reveal">One retainer.<br><em>Everything included.</em></h2>
-  <div style="max-width:560px;margin-bottom:3.5rem;" class="reveal">
-    <p style="font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);margin-top:1rem;">One monthly number covers everything — content, a custom lead AI agent, and a cold email AI agent built specifically for your company. No setup fee. No contracts. And for every client we introduce, we take 30% of the revenue for the life of that contract. <strong>We're not a vendor. We're in the deal with you.</strong></p>
+<section class="section off" id="pricing">
+  <div class="eyebrow reveal">06 — Investment</div>
+  <h2 class="sh reveal">$4K/month retainer.<br><em>Plus referral on net-new.</em></h2>
+
+  <div style="margin-top:2.5rem;max-width:780px;font-size:1rem;font-weight:300;line-height:1.8;color:var(--body);" class="reveal">
+    Two streams, intentionally separated: <strong style="color:var(--ink);">$4,000/month retainer</strong> covers the work — outreach, content production, weekly reporting, pipeline management — for a <strong style="color:var(--ink);">3-month minimum term.</strong> Three months is the floor for the engagement to make sense at all; we recognize <strong style="color:var(--ink);">B2B sales cycles in this category typically run longer</strong>, and our planning assumes that. <strong style="color:var(--ink);">Referral economics</strong> reward outcomes: 30%–50% of gross on net-new clients we source, paid for the life of the contract. The retainer pays for the operators. The referral rewards the closes.
   </div>
 
-  <!-- SINGLE RETAINER CARD -->
-  <div class="reveal">
-    <div style="border-radius:20px;overflow:hidden;background:var(--navy);position:relative;box-shadow:0 20px 60px rgba(13,27,62,.25);">
-      <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.18),transparent 70%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:-100px;left:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);pointer-events:none;"></div>
+  <div class="commercial-grid">
 
-      <!-- HEADER -->
-      <div style="padding:3rem 3rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;">
-          <div>
-            <div style="display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--electric);color:#fff;padding:.3rem 1rem;border-radius:100px;margin-bottom:1rem;">Full System — One Price</div>
-            <div style="font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:#fff;line-height:1.2;margin-bottom:.5rem;">Organic AI + LinkedIn Agent<br><em style="color:var(--sky);">+ Lead AI Agent.</em></div>
-            <div style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.45);max-width:420px;margin-top:.8rem;">Three systems running simultaneously. Organic AI builds authority while you sleep. The LinkedIn agent reaches portfolio decision-makers 24/7. The lead agent captures every response, qualifies it, and books the call. One pipeline — always filling.</div>
-          </div>
-          <div style="text-align:center;flex-shrink:0;">
-            <div style="font-family:'Fraunces',serif;font-size:5.5rem;font-weight:200;color:#fff;line-height:1;">$3,000</div>
-            <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-top:.3rem;">/month</div>
-            <div style="font-size:.68rem;color:rgba(255,255,255,.3);margin-top:.2rem;">No contracts · Cancel anytime</div>
-          </div>
-        </div>
-      </div>
+    <!-- RETAINER -->
+    <div class="commercial-card retainer reveal">
+      <div class="cc-tag">Retainer · Deliverables &amp; Workflow</div>
+      <div class="cc-title">Two operators. Two networks.<br><em>3-month minimum.</em></div>
+      <div class="cc-amount">$4<em>K</em></div>
+      <div class="cc-period">/month · 3-month minimum · then month-to-month</div>
+      <div class="cc-desc">Covers network-led outreach across both regions (Alberto US + Daniel Canada), 12–18 monthly content pieces, weekly reporting, pipeline management (CRM-of-your-choice or ours), and the warm-handoff process to LongFi. <strong>Tied to deliverables — outcomes are the referral.</strong></div>
+    </div>
 
-      <!-- THREE PILLARS -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.06);position:relative;z-index:1;" class="pricing-features" id="three-pillars">
-        <!-- ORGANIC AI -->
-        <div style="padding:2.2rem 2rem;background:rgba(255,255,255,.02);">
-          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">01 — Organic AI</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Content created in Longfi's voice.</div>
-          <div style="display:flex;flex-direction:column;gap:.65rem;">
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>12–18 pieces of content/videos per month</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Case studies built every month</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>FIFA content — launch + ongoing results</div>
-          </div>
-        </div>
-        <!-- LINKEDIN AI AGENT -->
-        <div style="padding:2.2rem 2rem;background:rgba(59,130,246,.06);border-left:1px solid rgba(255,255,255,.06);border-right:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">02 — LinkedIn AI Agent</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Runs 24/7. Always prospecting. Never stops.</div>
-          <div style="display:flex;flex-direction:column;gap:.65rem;">
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Portfolio-level prospect lists — always updating</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>AI-personalized connection + messages 24/7</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>References your content — never cold</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Replies routed straight to Jose</div>
-          </div>
-        </div>
-        <!-- LEAD AI AGENT -->
-        <div style="padding:2.2rem 2rem;background:rgba(255,255,255,.02);">
-          <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;">03 — Lead AI Agent</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:1.2rem;">Email outreach. Qualifies inbound. Books the call.</div>
-          <div style="display:flex;flex-direction:column;gap:.65rem;">
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>AI email outreach to target accounts</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Qualifies every inbound lead instantly</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Books discovery calls automatically</div>
-            <div style="font-size:.83rem;font-weight:300;color:rgba(255,255,255,.55);display:flex;gap:.6rem;"><span style="color:var(--sky);flex-shrink:0;">✓</span>Custom-trained on your services + ICP</div>
-          </div>
-        </div>
-      </div>
+    <!-- REFERRAL -->
+    <div class="commercial-card referral reveal">
+      <div class="cc-tag">Referral · Attribution-Based</div>
+      <div class="cc-title">30% to 50% of gross.<br><em>Net-new only. Life of contract.</em></div>
+      <div class="cc-amount">30–50<em>%</em></div>
+      <div class="cc-period">Of gross carrier revenue · Net-new clients only</div>
+      <div class="cc-desc">Paid only on clients we source where no other partner is already in the economics. Single payee — we pay any owner-operator out of our share. <strong>No stacking on existing partner deals.</strong> 30% baseline · 50/50 multi-unit · 60/40 vertical-defining.</div>
+    </div>
 
-      <!-- FOOTER -->
-      <div style="padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;position:relative;z-index:1;">
-        <div style="font-size:.87rem;font-weight:300;color:rgba(255,255,255,.4);">All three systems run simultaneously — one pipeline, always filling. Pipeline dashboard + monthly report included.</div>
-        <a href="https://buy.stripe.com/9B65kDfBK4UqeHM4YE53O0Q" style="display:inline-block;padding:1rem 2.4rem;border-radius:8px;background:#fff;color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0;">Pay Now — Let's Start</a>
-      </div>
+  </div>
+
+  <!-- WHAT THE 4K COVERS -->
+  <div style="margin-top:2.5rem;padding:2rem 2.4rem;border-radius:12px;background:var(--white);border:1.5px solid var(--border);" class="reveal">
+    <div style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem;">What the $4K/month retainer covers</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Network-led outreach · both regions combined</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>40–60 warm intros / week</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>100–150 cold/qualified outreach / week</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>12–18 content pieces / month (all video, organic)</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>1 long-form YouTube anchor / month</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Distribution: LinkedIn, YouTube, Instagram, TikTok, Facebook</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Pipeline management (your CRM or ours)</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Warm handoffs to LongFi with full context</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Weekly syncs · monthly reporting</div>
+      <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;color:var(--body);"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">✓</span>Conflict checks against your existing pipeline</div>
     </div>
   </div>
 
-  <!-- 30% REV SHARE CALLOUT -->
-  <div style="margin-top:1.5rem;padding:2.2rem 2.8rem;border-radius:12px;background:var(--ink);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;" class="reveal">
-    <div style="flex:1;min-width:240px;">
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Beyond the retainer</div>
-      <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:#fff;line-height:1.4;">For <em style="color:var(--sky);font-style:normal;">every client we bring you</em> — whether through content, the LinkedIn agent, or a direct introduction — we earn <em style="color:var(--sky);font-style:normal;">30% of that contract's revenue</em> for its full duration. Not a finder's fee. A partnership.</div>
-      <div style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4);margin-top:.8rem;">This is the same rate you offer any partner. We're aligned to close deals, not just run campaigns.</div>
+  <!-- TERM SUMMARY -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1.5rem;background:var(--border);border-radius:12px;overflow:hidden;" class="reveal">
+    <div style="padding:1.6rem;background:var(--white);text-align:center;">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">Minimum Term</div>
+      <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;color:var(--ink);">3 months</div>
     </div>
-    <div style="text-align:center;flex-shrink:0;">
-      <div style="font-family:'Fraunces',serif;font-size:5rem;font-weight:200;color:#fff;line-height:1;">30<span style="font-size:2.2rem;color:var(--sky);">%</span></div>
-      <div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.3rem;">On every client. Every contract.</div>
+    <div style="padding:1.6rem;background:var(--white);text-align:center;">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">3-Month Total</div>
+      <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;color:var(--ink);">$12,000</div>
     </div>
-  </div>
-
-  <p class="price-fn reveal" style="margin-top:1.2rem;">No contracts. No setup fees. We earn your business every 30 days.</p>
-</section>
-
-<!-- ════════════════════════════════════════════
-     TIMELINE
-════════════════════════════════════════════ -->
-<section class="section off" id="timeline">
-  <div class="eyebrow reveal">08 — Launch Plan</div>
-  <h2 class="sh reveal">Signal live<br><em>in 30 days.</em></h2>
-
-  <div class="tl-row reveal">
-    <div class="tl-item">
-      <div class="tl-dot">1</div>
-      <div class="tl-wk">Week 1</div>
-      <div class="tl-title">Strategy + Audit</div>
-      <div class="tl-desc">Content audit, enterprise ICP definition, McCarthy case study outline drafted, FIFA sprint planned, outreach system mapped</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">2</div>
-      <div class="tl-wk">Week 2</div>
-      <div class="tl-title">Infrastructure Live</div>
-      <div class="tl-desc">Outreach sequences loaded, pipeline dashboard live, partner activation deck complete, McCarthy case study in production</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">3</div>
-      <div class="tl-wk">Week 3</div>
-      <div class="tl-title">First Content Live</div>
-      <div class="tl-desc">First 4 short-form videos published. First LinkedIn posts in Jose's voice. FIFA World Cup content series kicks off.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">4</div>
-      <div class="tl-wk">Week 4</div>
-      <div class="tl-title">Outreach Warms</div>
-      <div class="tl-desc">McCarthy case study goes live as a shareable asset. Partner referral outreach begins. First warm follow-up sequences deployed.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">5</div>
-      <div class="tl-wk">Month 2+</div>
-      <div class="tl-title">Signal Running</div>
-      <div class="tl-desc">Track meetings booked, pipeline value, content reach. Optimize every 30 days. Report delivered to co-founders monthly.</div>
+    <div style="padding:1.6rem;background:var(--pale);text-align:center;">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:.4rem;">+ Referral on Net-New</div>
+      <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;color:var(--blue);">30–50%</div>
     </div>
   </div>
+
+  <!-- STRIPE -->
+  <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+    <a href="https://buy.stripe.com/9B65kDfBK4UqeHM4YE53O0Q" style="display:inline-block;padding:1.1rem 3rem;border-radius:8px;background:var(--blue);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .25s;">Start Now</a>
+  </div>
+
+  <p style="text-align:center;font-size:.78rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:1.2rem;" class="reveal">3-month minimum is the engagement floor — B2B sales cycles in this category typically run longer, and we plan accordingly. Month-to-month after the minimum. Referral economics continue on contracted deals even if retainer ends.</p>
 </section>
 
 <!-- ════════════════════════════════════════════
      CTA
 ════════════════════════════════════════════ -->
 <section class="cta" id="cta">
-  <div class="cta-ring">
-    <div></div><div></div><div></div><div></div>
-  </div>
-  <div class="cta-ey">Ready when you are, Jose</div>
-  <h2 class="cta-h">Let's build<br>the <em>signal.</em></h2>
-  <p class="cta-sub">One conversation. We'll walk through exactly how this works for your enterprise push — and how we get into the sales cycle together.</p>
+  <div class="cta-ey">Ready when you are</div>
+  <h2 class="cta-h">Let's open<br>the <em>networks.</em></h2>
+  <p class="cta-sub">Everything is laid out — the thesis, the networks, the Canada opportunity, the 30-day plan, the content engine, and the commercial structure. Let's start.</p>
 
   <div class="cta-people">
     <div>
-      <div class="cp-role">Content + Strategy — DR&amp;AV</div>
-      <div class="cp-name">Dani</div>
+      <div class="cp-role">Content + Canada + US Operators — DR&amp;AD</div>
+      <div class="cp-name">Daniel</div>
       <div class="cp-num">+1 438 630 7806</div>
     </div>
     <div>
-      <div class="cp-role">AI Systems + Outreach</div>
+      <div class="cp-role">AI Systems + US Network</div>
       <div class="cp-name">Alberto</div>
       <div class="cp-num">+1 786 390 0074</div>
     </div>
   </div>
 
   <div class="cta-btns">
-    <a href="https://buy.stripe.com/9B65kDfBK4UqeHM4YE53O0Q" class="cta-btn p">Pay Now — Let's Start</a>
-    <a href="https://wa.me/14386307806?text=Hey%20Dani%2C%20ready%20to%20talk%20about%20the%20Signal%20proposal" class="cta-btn o">WhatsApp Dani</a>
-    <a href="https://wa.me/17863900074?text=Hey%20Alberto%2C%20ready%20to%20talk%20about%20the%20Signal%20proposal" class="cta-btn o">WhatsApp Alberto</a>
+    <a href="https://buy.stripe.com/9B65kDfBK4UqeHM4YE53O0Q" class="cta-btn p">Start Now</a>
+    <a href="https://wa.me/14386307806?text=Hey%20Daniel%2C%20ready%20to%20talk%20about%20the%20LongFi%20proposal" class="cta-btn o">WhatsApp Daniel</a>
+    <a href="https://wa.me/17863900074?text=Hey%20Alberto%2C%20ready%20to%20talk%20about%20the%20LongFi%20proposal" class="cta-btn o">WhatsApp Alberto</a>
   </div>
 
   <div class="cta-foot">
-    DR&amp;AV · Content + AI Systems · Proposal for Jose Torres · Valid 30 days
+    DR&amp;AD · Partnership Proposal for Jose &amp; Andrew · LongFi Solutions
   </div>
 </section>
 
